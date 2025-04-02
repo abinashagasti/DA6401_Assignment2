@@ -90,11 +90,13 @@ def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, d
         avg_val_loss = total_val_loss / total_val_samples
         val_accuracy = correct_val / total_val_samples * 100
 
-        scheduler.step(avg_val_loss)
+        if scheduler is not None:
+            scheduler.step(avg_val_loss)
+            print(f"Current Learning Rate: {scheduler.optimizer.param_groups[0]['lr']:.6f}")
 
         # Print epoch summary
         print(f"Epoch [{epoch+1}/{max_epochs}] → Train Loss: {avg_train_loss:.4f}, Train Acc: {train_accuracy:.2f}% | Val Loss: {avg_val_loss:.4f}, Val Acc: {val_accuracy:.2f}%\n")
-        print(f"Current Learning Rate: {scheduler.optimizer.param_groups[0]['lr']:.6f}")
+        
 
 def test_loop(test_loader, model, loss_fn, device=torch.device('cpu')):
     model.eval()  # Set model to evaluation mode

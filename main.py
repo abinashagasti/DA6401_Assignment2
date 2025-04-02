@@ -10,12 +10,12 @@ from utils import *
 
 
 def main():
-   
-   # Define dataset paths
-    train_dir = "../inaturalist_12k/train"
-    test_dir = "../inaturalist_12k/val"
 
-    learning_rate = 1e-4
+   # Define dataset paths
+    train_dir = "../inaturalist_12K/train"
+    test_dir = "../inaturalist_12K/val"
+
+    learning_rate = 1e-3
     batch_size = 64
     max_epochs = 30
 
@@ -26,14 +26,15 @@ def main():
     print(f"Using device: {device}")
 
     # Model instantiation with flexible hyperparameters
-    model = CNN(num_filters=[64,128,256,512,1024], num_dense=1024).to(device)
+    num_filters = [16,32,64,128,256]
+    model = CNN(num_filters=num_filters, num_dense=1024).to(device)
     model.apply(init_weights)
 
     loss_fn = nn.CrossEntropyLoss() # Loss function
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=1e-4) # Optimizer
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
+    # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
 
-    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, device=device, max_epochs=max_epochs)
+    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler=None, device=device, max_epochs=max_epochs)
     test_loop(test_loader, model, loss_fn, device)
 
 if __name__=="__main__":
