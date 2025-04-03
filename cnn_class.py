@@ -3,24 +3,38 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class CNN(nn.Module):
-    def __init__(self, num_filters=[32, 64, 128, 256, 512], kernel_size=3, num_dense=256, num_classes=10, activation=F.relu):
+    def __init__(self, num_filters=[32, 64, 128, 256, 512], kernel_size=[5,5,5,3,3], num_dense=[256], num_classes=10, activation=F.relu, use_batchnorm=False, use_dropout=False, dropout_prob=0.2):
         super(CNN, self).__init__()
         self.activation = activation  # Set activation function
         self.pool = nn.MaxPool2d(2, 2)
+        self.use_batchnorm = use_batchnorm
+        self.use_dropout = use_dropout
+
+        assert len(num_filters)==len(kernel_size), "Mismatch in kernel_size num_filters length!"
 
         # Convolutional layers
         self.convs = nn.ModuleList()
+        self.bns = nn.ModuleList()
+        self.fcs = nn.ModuleList()
         in_channels = 3  # Initial input channels (RGB)
-        for out_channels in num_filters:
-            self.convs.append(nn.Conv2d(in_channels, out_channels, kernel_size))
-            in_channels = out_channels  # Update input channels for next layer
+        for i in range(len(num_filters)):
+            self.convs.append(nn.Conv2d(in_channels, num_filters[i], kernel_size[i]))
+            if self.use_batchnorm:
+                self.bns.append(nn.BatchNorm2d(num_filters[i]))
+            in_channels = num_filters[i]  # Update input channels for next layer
 
         # Dummy input to calculate flattened size
         self.flattened_size = self._get_flattened_size((3, 224, 224))
         
         # Fully connected layers
-        self.fc1 = nn.Linear(self.flattened_size, num_dense)
-        self.fc2 = nn.Linear(num_dense, num_classes)
+        input_size = self.flattened_size
+        for output_size in num_dense:
+            self.fcs.append(nn.Linear(input_size, output_size))
+            input_size = output_size
+        self.fcs.append(nn.Linear(input_size, num_classes))
+        
+        # Dropout layer
+        self.dropout = nn.Dropout(dropout_prob) if self.use_dropout else nn.Identity()
 
     def _get_flattened_size(self, input_shape):
         """Passes a dummy tensor through conv layers to compute flattened size."""
@@ -31,9 +45,14 @@ class CNN(nn.Module):
             return x.numel()
 
     def forward(self, x):
-        for conv in self.convs:
-            x = self.pool(self.activation(conv(x)))
+        for i in range(len(self.convs)):
+            x = (self.convs[i](x))
+            if self.use_batchnorm:
+                x = self.bns[i](x)
+            x = self.pool(self.activation(x))
         x = x.view(x.size(0), -1)  # Flatten
-        x = self.activation(self.fc1(x))
-        x = self.fc2(x)
+        for i in range(len(self.fcs)-1):
+            x = self.activation(self.fcs[i](x))
+            x = self.dropout(x)
+        x = self.fcs[len(self.fcs)-1](x)
         return x

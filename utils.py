@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0.2):
     # Define transformations (you can modify this as needed)
-    transform = transforms.Compose([
+    transform1 = transforms.Compose([
     transforms.Resize((224, 224)),  # Uniform sizing of all images
     transforms.RandomHorizontalFlip(p=0.5),  # Flip images randomly
     transforms.RandomRotation(20),           # Rotate images by ±20°
@@ -16,9 +16,16 @@ def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]) # Set pixel values to 0.5 mean and std across 3 channels
 ])
+    
+    transform2 = transforms.Compose([
+    transforms.Resize((224, 224)),  # Uniform sizing of all images
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]) # Set pixel values to 0.5 mean and std across 3 channels
+])
+
     # Load datasets
-    train_dataset = datasets.ImageFolder(root=train_dir, transform=transform)
-    test_dataset = datasets.ImageFolder(root=test_dir, transform=transform)
+    train_dataset = datasets.ImageFolder(root=train_dir, transform=transform1)
+    test_dataset = datasets.ImageFolder(root=test_dir, transform=transform2)
 
     # Define the split sizes
     val_size = int(val_split * len(train_dataset))  # 20% for validation
@@ -40,6 +47,8 @@ def init_weights(m):
 
 def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, device=torch.device('cpu'), max_epochs=5):
     for epoch in tqdm(range(max_epochs), desc="Training Progress", unit="epoch"):
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
         model.train()  # Set model to training mode
         
         total_train_loss = 0.0
