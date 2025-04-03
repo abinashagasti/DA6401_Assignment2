@@ -17,7 +17,7 @@ def main():
 
     learning_rate = 1e-3
     batch_size = 64
-    max_epochs = 10
+    max_epochs = 50
 
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     # device = torch.device("cpu")
@@ -27,19 +27,20 @@ def main():
     train_loader, val_loader, test_loader = dataset_split(train_dir, test_dir, batch_size=batch_size, num_workers=num_workers)
 
     # Model instantiation with flexible hyperparameters
-    num_filters = [128, 128, 256, 256, 512]
-    num_dense = [1024]
-    model = CNN(num_filters=num_filters, num_dense=num_dense, use_batchnorm=False, use_dropout=False)
+    num_filters = [64, 64, 64, 64, 64]
+    kernel_size = [3, 3, 3, 3, 3]
+    num_dense = [128]
+    model = CNN(num_filters=num_filters, num_dense=num_dense, kernel_size=kernel_size, use_batchnorm=False, use_dropout=True, dropout_prob=0.1)
     model = model.to(device)
-    model.apply(init_weights)
+    # model.apply(init_weights)
 
     loss_fn = nn.CrossEntropyLoss() # Loss function
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=1e-5) # Optimizer
+    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=1e-4) # Optimizer
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
 
-    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler=scheduler, device=device, max_epochs=max_epochs)
+    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler=scheduler, device=device, max_epochs=max_epochs, patience_stop=10)
     test_loop(test_loader, model, loss_fn, device)
 
 if __name__=="__main__":
-    mp.set_start_method('fork')
+    mp.set_start_method('spawn')
     main()

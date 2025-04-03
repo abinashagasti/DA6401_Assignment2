@@ -45,7 +45,12 @@ def init_weights(m):
     if isinstance(m, nn.Conv2d) or isinstance(m, nn.Linear):
         nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
 
-def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, device=torch.device('cpu'), max_epochs=5):
+def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, device=torch.device('cpu'), max_epochs=5, patience_stop=10):
+
+    best_val_loss = 10
+    best_val_accuracy = 0
+    epochs_without_improvement = 0
+
     for epoch in tqdm(range(max_epochs), desc="Training Progress", unit="epoch"):
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
@@ -99,13 +104,28 @@ def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, d
         avg_val_loss = total_val_loss / total_val_samples
         val_accuracy = correct_val / total_val_samples * 100
 
+        # Print epoch summary
+        print(f"Epoch [{epoch+1}/{max_epochs}] → Train Loss: {avg_train_loss:.4f}, Train Acc: {train_accuracy:.2f}% | Val Loss: {avg_val_loss:.4f}, Val Acc: {val_accuracy:.2f}%\n")
+        
         if scheduler is not None:
             scheduler.step(avg_val_loss)
             print(f"Current Learning Rate: {scheduler.optimizer.param_groups[0]['lr']:.6f}")
 
-        # Print epoch summary
-        print(f"Epoch [{epoch+1}/{max_epochs}] → Train Loss: {avg_train_loss:.4f}, Train Acc: {train_accuracy:.2f}% | Val Loss: {avg_val_loss:.4f}, Val Acc: {val_accuracy:.2f}%\n")
-        
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            epochs_without_improvement = 0
+            torch.save(model.state_dict(), "best_model.pth")
+        else:
+            epochs_without_improvement += 1
+
+        if val_accuracy > best_val_accuracy:
+            best_val_accuracy = val_accuracy
+
+        if epochs_without_improvement >= patience_stop:
+            print(f"Early stopping triggered after {patience_stop} epochs without improvement.")   
+            break     
+
+    print(f"Training complete. Best validation loss = {best_val_loss:.4f}; best validation accuracy = {best_val_accuracy:.2f}%")
 
 def test_loop(test_loader, model, loss_fn, device=torch.device('cpu')):
     model.eval()  # Set model to evaluation mode
