@@ -14,13 +14,14 @@ def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0
     transforms.RandomRotation(10),           # Rotate images by ±10°
     # transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Slight color changes
     transforms.ToTensor(),
-    transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]) # Set pixel values to 0.5 mean and std across 3 channels
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) # Set pixel values to 0.5 mean and std across 3 channels
 ])
     
     transform2 = transforms.Compose([
     transforms.Resize((224, 224)),  # Uniform sizing of all images
     transforms.ToTensor(),
-    transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]) # Set pixel values to 0.5 mean and std across 3 channels
+    # transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]) # Set pixel values to 0.5 mean and std across 3 channels
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
     # Load test dataset
     test_dataset = datasets.ImageFolder(root=test_dir, transform=transform2)
@@ -47,13 +48,9 @@ def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0
 
     return train_loader, val_loader, test_loader
 
-def init_weights(m):
-    if isinstance(m, nn.Conv2d) or isinstance(m, nn.Linear):
-        nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-
 def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, device=torch.device('cpu'), max_epochs=5, patience_stop=10):
 
-    best_val_loss = 10
+    best_val_loss = float('inf')
     best_val_accuracy = 0
     epochs_without_improvement = 0
 
@@ -68,12 +65,12 @@ def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, d
         for X, y in train_loader:
             X, y = X.to(device), y.to(device)
 
+            optimizer.zero_grad()
             # Forward pass
             pred = model(X)
             loss = loss_fn(pred, y)
 
             # Backpropagation
-            optimizer.zero_grad()
             loss.backward()
             optimizer.step()
 
