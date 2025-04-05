@@ -4,14 +4,16 @@ import torch.nn as nn
 from torchvision import datasets
 from torch.utils.data import DataLoader, Subset
 from tqdm import tqdm 
+import torch.nn.functional as F
+import wandb
 
 
-def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0.2):
+def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0.2, augmentation=False):
     # Define transformations (you can modify this as needed)
     transform1 = transforms.Compose([
     transforms.Resize((224, 224)),  # Uniform sizing of all images
     transforms.RandomHorizontalFlip(p=0.5),  # Flip images randomly
-    transforms.RandomRotation(10),           # Rotate images by ±10°
+    # transforms.RandomRotation(10),           # Rotate images by ±10°
     # transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Slight color changes
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) # Set pixel values to 0.5 mean and std across 3 channels
@@ -38,7 +40,8 @@ def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0
     train_indices, val_indices = indices[:train_size], indices[train_size:]
 
     # Create subsets with different transforms
-    train_subset = Subset(datasets.ImageFolder(root=train_dir, transform=transform1), train_indices)
+    transform_train = transform1 if augmentation else transform2
+    train_subset = Subset(datasets.ImageFolder(root=train_dir, transform=transform_train), train_indices)
     val_subset = Subset(datasets.ImageFolder(root=train_dir, transform=transform2), val_indices)
 
     # Create DataLoaders
@@ -48,7 +51,7 @@ def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0
 
     return train_loader, val_loader, test_loader
 
-def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, device=torch.device('cpu'), max_epochs=5, patience_stop=10):
+def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, device=torch.device('cpu'), max_epochs=5, patience_stop=10, wandb_log=False):
 
     best_val_loss = float('inf')
     best_val_accuracy = 0
@@ -105,6 +108,15 @@ def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, d
         avg_val_loss = total_val_loss / total_val_samples
         val_accuracy = correct_val / total_val_samples * 100
 
+        if wandb_log:
+                wandb.log({
+                    "epoch": epoch,
+                    "training_loss": avg_train_loss,
+                    "training_accuracy": train_accuracy,
+                    "validation_loss": avg_val_loss,
+                    "validation_accuracy": val_accuracy
+                })
+
         # Print epoch summary
         print(f"Epoch [{epoch+1}/{max_epochs}] → Train Loss: {avg_train_loss:.4f}, Train Acc: {train_accuracy:.2f}% | Val Loss: {avg_val_loss:.4f}, Val Acc: {val_accuracy:.2f}%\n")
         
@@ -115,7 +127,7 @@ def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, d
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
             epochs_without_improvement = 0
-            torch.save(model.state_dict(), "best_model.pth")
+            torch.save(model.state_dict(), "../best_model.pth")
         else:
             epochs_without_improvement += 1
 
@@ -152,3 +164,19 @@ def test_loop(test_loader, model, loss_fn, device=torch.device('cpu')):
 
     # Print test summary
     print(f"Test Results → Test Loss: {avg_test_loss:.4f}, Test Acc: {test_accuracy:.2f}%\n")
+
+def get_activation(activation: str):
+    if activation == "ReLU":
+        return F.relu
+    elif activation == "GELU":
+        return F.gelu
+    elif activation == "SiLU":
+        return F.silu
+    elif activation == "Mish":
+        return F.mish
+    
+def get_optimizer(optimizer_name: str, model, learning_rate: float, weight_decay: float):
+    if optimizer_name == "adam":
+        return torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
+    elif optimizer_name == "sgd":
+        return torch.optim.SGD(model.parameters(), lr=learning_rate, momentum = 0.9, weight_decay=weight_decay)

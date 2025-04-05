@@ -43,8 +43,10 @@ class CNN(nn.Module):
         """Passes a dummy tensor through conv layers to compute flattened size."""
         with torch.no_grad():
             x = torch.zeros(1, *input_shape)
-            for conv in self.convs:
+            for i, conv in enumerate(self.convs):
                 x = self.pool(self.activation(conv(x)))
+                # if i % 2 == 1:
+                #     x = self.pool(x)
             return x.numel()
         
     def _initialize_weights(self):
@@ -66,6 +68,10 @@ class CNN(nn.Module):
             if self.use_batchnorm:
                 x = self.bns[i](x)
             x = self.pool(self.activation(x))
+            # if i%2==1:
+            #     x = self.pool(self.activation(x))
+            # else:
+            #     x = self.activation(x)
         x = x.view(x.size(0), -1)  # Flatten
         for i in range(len(self.fcs)-1):
             x = self.activation(self.fcs[i](x))
