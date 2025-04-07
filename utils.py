@@ -6,30 +6,62 @@ from torch.utils.data import DataLoader, Subset
 from tqdm import tqdm 
 import torch.nn.functional as F
 import wandb
+import seaborn as sns
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+from PIL import Image
 
+# Custom transform to ensure portrait orientation
+class EnsurePortrait:
+    def __call__(self, img: Image.Image):
+        if img.width > img.height:
+            return img.rotate(90, expand=True)
+        return img
+
+# Now wrap them to apply different transforms
+class TransformedDataset(torch.utils.data.Dataset):
+    def __init__(self, subset, transform):
+        self.subset = subset
+        self.transform = transform
+
+    def __getitem__(self, index):
+        img, label = self.subset[index]
+        return self.transform(img), label
+
+    def __len__(self):
+        return len(self.subset)
 
 def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0.2, augmentation=False):
-    # Define transformations (you can modify this as needed)
-    transform1 = transforms.Compose([
-    transforms.Resize((224, 224)),  # Uniform sizing of all images
-    transforms.RandomHorizontalFlip(p=0.5),  # Flip images randomly
-    # transforms.RandomRotation(10),           # Rotate images by ±10°
-    # transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Slight color changes
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) # Set pixel values to 0.5 mean and std across 3 channels
-])
-    
-    transform2 = transforms.Compose([
-    transforms.Resize((224, 224)),  # Uniform sizing of all images
-    transforms.ToTensor(),
-    # transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]) # Set pixel values to 0.5 mean and std across 3 channels
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
-    # Load test dataset
-    test_dataset = datasets.ImageFolder(root=test_dir, transform=transform2)
+    # Define transformations 
+    base_transforms = [
+        # EnsurePortrait(),
+        transforms.Resize((224, 224)),  # Resize to portrait shape (HxW)
+    ]
 
-    # Load full dataset
-    full_dataset = datasets.ImageFolder(root=train_dir)  
+    if augmentation:
+        transform_train = transforms.Compose(base_transforms + [
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.RandomRotation(10),
+            # transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Slight color changes
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) # Set pixel values to 0.5 mean and std across 3 channels      
+        ])
+    else:
+        transform_train = transforms.Compose(base_transforms + [
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) # Set pixel values to 0.5 mean and std across 3 channels      
+        ])
+
+    transform_val = transforms.Compose(base_transforms + [
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) # Set pixel values to 0.5 mean and std across 3 channels      
+        ])
+    
+    # Load test dataset
+    test_dataset = datasets.ImageFolder(root=test_dir, transform=transform_val)
+
+    # Load the full dataset once (without transforms initially)
+    full_dataset = datasets.ImageFolder(root=train_dir)
 
     # Define the split sizes
     val_size = int(val_split * len(full_dataset))  
@@ -39,14 +71,36 @@ def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0
     indices = torch.randperm(len(full_dataset)).tolist()  
     train_indices, val_indices = indices[:train_size], indices[train_size:]
 
-    # Create subsets with different transforms
-    transform_train = transform1 if augmentation else transform2
-    train_subset = Subset(datasets.ImageFolder(root=train_dir, transform=transform_train), train_indices)
-    val_subset = Subset(datasets.ImageFolder(root=train_dir, transform=transform2), val_indices)
+    # Define dataset subsets using the same full_dataset
+    train_subset = Subset(full_dataset, train_indices)
+    val_subset = Subset(full_dataset, val_indices)
+
+    # Apply different transforms to train and val
+    train_dataset = TransformedDataset(train_subset, transform=transform_train)
+    val_dataset = TransformedDataset(val_subset, transform=transform_val)
 
     # Create DataLoaders
-    train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
-    val_loader = DataLoader(val_subset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=True)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
+
+    # Load full dataset
+    # full_dataset = datasets.ImageFolder(root=train_dir)  
+
+    # # Define the split sizes
+    # val_size = int(val_split * len(full_dataset))  
+    # train_size = len(full_dataset) - val_size  
+
+    # # Get shuffled indices
+    # indices = torch.randperm(len(full_dataset)).tolist()  
+    # train_indices, val_indices = indices[:train_size], indices[train_size:]
+
+    # # Create subsets with different transforms
+    # train_subset = Subset(datasets.ImageFolder(root=train_dir, transform=transform_train), train_indices)
+    # val_subset = Subset(datasets.ImageFolder(root=train_dir, transform=transform_val), val_indices)
+
+    # # Create DataLoaders
+    # train_loader = DataLoader(train_subset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
+    # val_loader = DataLoader(val_subset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
 
     return train_loader, val_loader, test_loader
@@ -140,30 +194,57 @@ def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, d
 
     print(f"Training complete. Best validation loss = {best_val_loss:.4f}; best validation accuracy = {best_val_accuracy:.2f}%")
 
-def test_loop(test_loader, model, loss_fn, device=torch.device('cpu')):
+def test_loop(test_loader, model, loss_fn, device=torch.device('cpu'), class_names=None, save_confusion_matrix=True):
     model.eval()  # Set model to evaluation mode
     total_test_loss = 0.0
     correct_test = 0
     total_test_samples = 0
 
+    all_preds = []
+    all_labels = []
+
     with torch.no_grad():  # Disable gradient computation for testing
         for X_test, y_test in test_loader:
             X_test, y_test = X_test.to(device), y_test.to(device)
-            
+
             pred_test = model(X_test)
             loss_test = loss_fn(pred_test, y_test)
 
             # Track loss & accuracy
-            total_test_loss += loss_test.item() * X_test.size(0)  # Sum batch loss
-            correct_test += (pred_test.argmax(1) == y_test).sum().item()  # Count correct predictions
-            total_test_samples += X_test.size(0)  # Count total samples
+            total_test_loss += loss_test.item() * X_test.size(0)
+            correct_test += (pred_test.argmax(1) == y_test).sum().item()
+            total_test_samples += X_test.size(0)
+
+            # Collect predictions and labels
+            all_preds.extend(pred_test.argmax(1).cpu().numpy())
+            all_labels.extend(y_test.cpu().numpy())
+
+    # Combine all batches
+    # all_preds = torch.cat(all_preds)
+    # all_labels = torch.cat(all_labels)
 
     # Compute test loss & accuracy
     avg_test_loss = total_test_loss / total_test_samples
     test_accuracy = correct_test / total_test_samples * 100
 
     # Print test summary
-    print(f"Test Results → Test Loss: {avg_test_loss:.4f}, Test Acc: {test_accuracy:.2f}%\n")
+    print(f"Test Loss: {avg_test_loss:.4f}, Test Acc: {test_accuracy:.2f}%\n")
+
+    # Compute and plot confusion matrix
+    if save_confusion_matrix:
+        cm = confusion_matrix(all_labels, all_preds)
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                    xticklabels=class_names if class_names else range(len(cm)),
+                    yticklabels=class_names if class_names else range(len(cm)))
+        plt.xlabel('Predicted')
+        plt.ylabel('Actual')
+        plt.title('Confusion Matrix')
+        plt.tight_layout()
+        plt.savefig('../confusion_matrix.png')
+        plt.show()
+
+    return all_labels, all_preds
 
 def get_activation(activation: str):
     if activation == "ReLU":
