@@ -1,0 +1,17 @@
+{"time":"2025-04-08T18:03:02.712602434+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_180302-k2vdnagl/logs/debug-core.log"}
+{"time":"2025-04-08T18:03:03.08883952+05:30","level":"INFO","msg":"created new stream","id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:03.088942971+05:30","level":"INFO","msg":"stream: started","id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:03.089029669+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:03.089168243+05:30","level":"INFO","msg":"handler: started","stream_id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:03.089207821+05:30","level":"INFO","msg":"sender: started","stream_id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:03.684469678+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T18:03:05.762361434+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T18:03:05.762391255+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T18:03:06.766082018+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.394654299,"progress":"755B/755B"}],"total_operations":1}}
+{"time":"2025-04-08T18:03:06.909094026+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T18:03:07.23740447+05:30","level":"INFO","msg":"stream: closing","id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:07.237438047+05:30","level":"INFO","msg":"handler: closed","stream_id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:07.237454144+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:07.237481475+05:30","level":"WARN","msg":"sender: received Exit record more than once, ignoring"}
+{"time":"2025-04-08T18:03:07.237490826+05:30","level":"INFO","msg":"sender: closed","stream_id":"k2vdnagl"}
+{"time":"2025-04-08T18:03:07.237683079+05:30","level":"INFO","msg":"stream: closed","id":"k2vdnagl"}

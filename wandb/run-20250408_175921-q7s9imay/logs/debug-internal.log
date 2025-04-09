@@ -1,0 +1,13 @@
+{"time":"2025-04-08T17:59:21.427704522+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_175921-q7s9imay/logs/debug-core.log"}
+{"time":"2025-04-08T17:59:21.808351625+05:30","level":"INFO","msg":"created new stream","id":"q7s9imay"}
+{"time":"2025-04-08T17:59:21.808440625+05:30","level":"INFO","msg":"stream: started","id":"q7s9imay"}
+{"time":"2025-04-08T17:59:21.808544439+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"q7s9imay"}
+{"time":"2025-04-08T17:59:21.808603315+05:30","level":"INFO","msg":"sender: started","stream_id":"q7s9imay"}
+{"time":"2025-04-08T17:59:21.808711864+05:30","level":"INFO","msg":"handler: started","stream_id":"q7s9imay"}
+{"time":"2025-04-08T17:59:21.890125811+05:30","level":"INFO","msg":"stream: closing","id":"q7s9imay"}
+{"time":"2025-04-08T17:59:22.178216255+05:30","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2025-04-08T17:59:23.167086999+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T17:59:23.167269152+05:30","level":"INFO","msg":"handler: closed","stream_id":"q7s9imay"}
+{"time":"2025-04-08T17:59:23.167298371+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"q7s9imay"}
+{"time":"2025-04-08T17:59:23.167345331+05:30","level":"INFO","msg":"sender: closed","stream_id":"q7s9imay"}
+{"time":"2025-04-08T17:59:23.167393646+05:30","level":"INFO","msg":"stream: closed","id":"q7s9imay"}

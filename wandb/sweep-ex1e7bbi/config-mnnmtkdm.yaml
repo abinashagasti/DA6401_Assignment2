@@ -1,0 +1,39 @@
+wandb_version: 1
+
+activation:
+  value: ReLU
+batch_size:
+  value: 64
+data_augmentation:
+  value: true
+dropout_prob:
+  value: 0.12014174617583628
+img_size:
+  value: 224
+kernel_size:
+  value:
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+learning_rate:
+  value: 0.0006245150409334523
+num_dense:
+  value:
+  - 512
+num_filters:
+  value:
+  - 32
+  - 64
+  - 128
+  - 256
+  - 512
+optimizer:
+  value: adam
+padding:
+  value: 1
+use_batchnorm:
+  value: true
+weight_decay:
+  value: 0.0007444108640123046

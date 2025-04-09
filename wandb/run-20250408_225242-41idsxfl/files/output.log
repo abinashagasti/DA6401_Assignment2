@@ -1,0 +1,14 @@
+Using device: cuda
+Unfreezing layer: features.7.0.weight
+Unfreezing layer: features.7.1.weight
+Unfreezing layer: features.7.1.bias
+Unfreezing layer: classifier.1.weight
+Unfreezing layer: classifier.1.bias
+Training with EfficientNetV2:
+Training Progress:  10%|████████▎                                                                          | 2/20 [00:26<04:00, 13.37s/epoch][34m[1mwandb[0m: Ctrl + C detected. Stopping sweep.
+Epoch [1/20] → Train Loss: 18.9081, Train Acc: 9.54% | Val Loss: 2.3085, Val Acc: 10.16%
+
+Current Learning Rate: 1.000346
+Epoch [2/20] → Train Loss: 2.3112, Train Acc: 9.94% | Val Loss: 2.3096, Val Acc: 9.70%
+
+Current Learning Rate: 1.000346

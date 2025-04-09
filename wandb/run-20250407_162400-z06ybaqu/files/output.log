@@ -1,0 +1,35 @@
+Using device: cuda
+Training Parameters:
+Learning Rate: 0.0001, num_filters: [256, 128, 64, 32, 16], kernel_size: [7, 7, 7, 7, 7], num_dense: [256], batch_size: 16, dropout: 0.3, batchnorm: False
+Training Progress: 100%|██████████████████████████████████████████████████████████████████████████████████| 10/10 [06:48<00:00, 40.84s/epoch]
+Epoch [1/10] → Train Loss: 2.2775, Train Acc: 14.00% | Val Loss: 2.2180, Val Acc: 18.71%
+
+Current Learning Rate: 0.000100
+Epoch [2/10] → Train Loss: 2.2028, Train Acc: 18.88% | Val Loss: 2.1711, Val Acc: 21.26%
+
+Current Learning Rate: 0.000100
+Epoch [3/10] → Train Loss: 2.1664, Train Acc: 21.24% | Val Loss: 2.1397, Val Acc: 22.61%
+
+Current Learning Rate: 0.000100
+Epoch [4/10] → Train Loss: 2.1366, Train Acc: 21.89% | Val Loss: 2.1222, Val Acc: 23.11%
+
+Current Learning Rate: 0.000100
+Epoch [5/10] → Train Loss: 2.1127, Train Acc: 22.82% | Val Loss: 2.1056, Val Acc: 22.71%
+
+Current Learning Rate: 0.000100
+Epoch [6/10] → Train Loss: 2.0907, Train Acc: 25.01% | Val Loss: 2.0935, Val Acc: 23.61%
+
+Current Learning Rate: 0.000100
+Epoch [7/10] → Train Loss: 2.0695, Train Acc: 25.14% | Val Loss: 2.0888, Val Acc: 23.56%
+
+Current Learning Rate: 0.000100
+Epoch [8/10] → Train Loss: 2.0475, Train Acc: 26.06% | Val Loss: 2.0683, Val Acc: 24.51%
+
+Current Learning Rate: 0.000100
+Epoch [9/10] → Train Loss: 2.0235, Train Acc: 27.52% | Val Loss: 2.0466, Val Acc: 26.91%
+
+Current Learning Rate: 0.000100
+Epoch [10/10] → Train Loss: 2.0081, Train Acc: 28.61% | Val Loss: 2.0554, Val Acc: 25.31%
+
+Current Learning Rate: 0.000100
+Training complete. Best validation loss = 2.0466; best validation accuracy = 26.91%

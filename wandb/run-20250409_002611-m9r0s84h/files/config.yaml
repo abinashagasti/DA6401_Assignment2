@@ -1,0 +1,42 @@
+_wandb:
+    value:
+        cli_version: 0.19.9
+        m: []
+        python_version: 3.12.9
+        t:
+            "1":
+                - 1
+                - 5
+                - 41
+                - 53
+                - 55
+            "2":
+                - 1
+                - 5
+                - 41
+                - 53
+                - 55
+            "3":
+                - 2
+                - 14
+                - 17
+                - 23
+                - 55
+            "4": 3.12.9
+            "5": 0.19.9
+            "8":
+                - 5
+            "12": 0.19.9
+            "13": linux-x86_64
+batch_size:
+    value: 64
+learning_rate:
+    value: 0.0005888158890953578
+model_type:
+    value: EfficientNetV2
+optimizer:
+    value: adam
+trainable_layers:
+    value: 5
+weight_decay:
+    value: 0.0008713884398652137

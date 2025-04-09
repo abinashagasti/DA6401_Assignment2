@@ -1,0 +1,16 @@
+{"time":"2025-04-07T16:15:16.48810282+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250407_161516-959v3012/logs/debug-core.log"}
+{"time":"2025-04-07T16:15:16.869299607+05:30","level":"INFO","msg":"created new stream","id":"959v3012"}
+{"time":"2025-04-07T16:15:16.869368854+05:30","level":"INFO","msg":"stream: started","id":"959v3012"}
+{"time":"2025-04-07T16:15:16.869504907+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"959v3012"}
+{"time":"2025-04-07T16:15:16.869674989+05:30","level":"INFO","msg":"handler: started","stream_id":"959v3012"}
+{"time":"2025-04-07T16:15:16.869898117+05:30","level":"INFO","msg":"sender: started","stream_id":"959v3012"}
+{"time":"2025-04-07T16:15:17.175443938+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-07T16:21:40.935393341+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-07T16:21:40.935512377+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-07T16:21:41.897959295+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.375290592,"progress":"1.8KB/1.8KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.375285488,"progress":"245B/245B"},{"desc":"uploading config.yaml","runtime_seconds":0.066262126,"progress":"1.1KB/1.1KB"}],"total_operations":3}}
+{"time":"2025-04-07T16:21:42.297801596+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-07T16:21:42.88244203+05:30","level":"INFO","msg":"stream: closing","id":"959v3012"}
+{"time":"2025-04-07T16:21:42.882448489+05:30","level":"INFO","msg":"handler: closed","stream_id":"959v3012"}
+{"time":"2025-04-07T16:21:42.882451865+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"959v3012"}
+{"time":"2025-04-07T16:21:42.882476569+05:30","level":"INFO","msg":"sender: closed","stream_id":"959v3012"}
+{"time":"2025-04-07T16:21:42.882487813+05:30","level":"INFO","msg":"stream: closed","id":"959v3012"}

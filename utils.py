@@ -31,18 +31,18 @@ class TransformedDataset(torch.utils.data.Dataset):
     def __len__(self):
         return len(self.subset)
 
-def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0.2, augmentation=False):
+def dataset_split(train_dir, test_dir, batch_size=64, num_workers=4, val_split=0.2, augmentation=False, img_size = 224):
     # Define transformations 
     base_transforms = [
         # EnsurePortrait(),
-        transforms.Resize((224, 224)),  # Resize to portrait shape (HxW)
+        transforms.Resize((img_size, img_size)),  # Resize to portrait shape (HxW)
     ]
 
     if augmentation:
         transform_train = transforms.Compose(base_transforms + [
             transforms.RandomHorizontalFlip(0.5),
             transforms.RandomRotation(10),
-            # transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Slight color changes
+            transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Slight color changes
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]) # Set pixel values to 0.5 mean and std across 3 channels      
         ])
@@ -164,7 +164,7 @@ def train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler, d
 
         if wandb_log:
                 wandb.log({
-                    "epoch": epoch,
+                    "epoch": epoch+1,
                     "training_loss": avg_train_loss,
                     "training_accuracy": train_accuracy,
                     "validation_loss": avg_val_loss,

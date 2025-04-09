@@ -1,0 +1,12 @@
+wandb_version: 1
+
+batch_size:
+  value: 64
+learning_rate:
+  value: 0.0001
+model_type:
+  value: InceptionV3
+optimizer:
+  value: adam
+weight_decay:
+  value: 0.0001

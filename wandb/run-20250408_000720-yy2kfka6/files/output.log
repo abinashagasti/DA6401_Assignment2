@@ -1,0 +1,10 @@
+Using device: cuda
+Training Parameters:
+Learning Rate: 1.000344176737323, num_filters: [32, 64, 128, 256, 512], kernel_size: [3, 3, 3, 3, 3], num_dense: [512], batch_size: 64, dropout: 0.061262994954476735, batchnorm: True
+Training Progress:   4%|███▎                                                                               | 2/50 [00:23<09:30, 11.88s/epoch][34m[1mwandb[0m: Ctrl + C detected. Stopping sweep.
+Epoch [1/50] → Train Loss: 5832.9952, Train Acc: 10.03% | Val Loss: 3279.7827, Val Acc: 9.30%
+
+Current Learning Rate: 1.000344
+Epoch [2/50] → Train Loss: 4486.1231, Train Acc: 10.81% | Val Loss: 3483.0561, Val Acc: 10.21%
+
+Current Learning Rate: 1.000344

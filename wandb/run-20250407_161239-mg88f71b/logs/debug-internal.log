@@ -1,0 +1,17 @@
+{"time":"2025-04-07T16:12:39.353179896+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250407_161239-mg88f71b/logs/debug-core.log"}
+{"time":"2025-04-07T16:12:40.205436912+05:30","level":"INFO","msg":"created new stream","id":"mg88f71b"}
+{"time":"2025-04-07T16:12:40.205509554+05:30","level":"INFO","msg":"stream: started","id":"mg88f71b"}
+{"time":"2025-04-07T16:12:40.205623484+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"mg88f71b"}
+{"time":"2025-04-07T16:12:40.205885223+05:30","level":"INFO","msg":"handler: started","stream_id":"mg88f71b"}
+{"time":"2025-04-07T16:12:40.205859399+05:30","level":"INFO","msg":"sender: started","stream_id":"mg88f71b"}
+{"time":"2025-04-07T16:12:40.537186973+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-07T16:15:00.807947941+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/ee20d201-indian-institute-of-technology-madras/DA6401_Assignment_2/mg88f71b/file_stream\": unexpected EOF"}
+{"time":"2025-04-07T16:15:11.614337062+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-07T16:15:11.614421154+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-07T16:15:12.617804848+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.118223872,"progress":"1.1KB/1.1KB"}],"total_operations":1}}
+{"time":"2025-04-07T16:15:12.882222295+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-07T16:15:13.702717147+05:30","level":"INFO","msg":"stream: closing","id":"mg88f71b"}
+{"time":"2025-04-07T16:15:13.702743225+05:30","level":"INFO","msg":"handler: closed","stream_id":"mg88f71b"}
+{"time":"2025-04-07T16:15:13.702755154+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"mg88f71b"}
+{"time":"2025-04-07T16:15:13.702858064+05:30","level":"INFO","msg":"sender: closed","stream_id":"mg88f71b"}
+{"time":"2025-04-07T16:15:13.702908584+05:30","level":"INFO","msg":"stream: closed","id":"mg88f71b"}

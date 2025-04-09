@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torch.multiprocessing as mp
-from tqdm import tqdm
 
 from cnn_class import CNN, resnet50_model
 from utils import *

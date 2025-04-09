@@ -1,0 +1,21 @@
+program: sweep_train.py  # or your training script name
+method: grid  # "grid", "random", or "bayes"
+metric:
+  name: val_accuracy
+  goal: maximize
+
+parameters:
+  learning_rate:
+    values: [1e-4]
+
+  weight_decay:
+    values: [1e-4]
+
+  batch_size:
+    values: [64]
+
+  optimizer:
+    values: ["adam"]
+
+  model_type:
+    values: ["ResNet18", "ResNet50", "GoogLeNet", "VGG", "InceptionV3", "EfficientNetV2", "VisionTransformer"]

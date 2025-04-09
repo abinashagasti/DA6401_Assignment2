@@ -1,0 +1,49 @@
+program: sweep_train.py  # or your training script name
+method: bayes  # "grid", "random", or "bayes"
+metric:
+  name: val_accuracy
+  goal: maximize
+
+parameters:
+  learning_rate:
+    min: 0.00001
+    max: 0.001
+
+  weight_decay:
+    min: 0.000001
+    max: 0.001
+
+  batch_size:
+    values: [64]
+
+  dropout_prob:
+    distribution: uniform
+    min: 0
+    max: 0.5
+
+  num_dense:
+    values: [[512]]
+
+  optimizer:
+    values: ["adam", "sgd"]
+
+  activation:
+    values: ["ReLU", "GELU", "SiLU", "Mish"]
+
+  use_batchnorm:
+    values: [True]
+
+  num_filters:
+    values: [[32, 64, 128, 256, 512]]
+
+  kernel_size:
+    values: [[3, 3, 3, 3, 3]]
+
+  padding:
+    values: [None, 1, 2]
+
+  data_augmentation:
+    values: [True]
+
+  img_size:
+    values: [224]

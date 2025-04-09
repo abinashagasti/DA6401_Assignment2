@@ -1,0 +1,16 @@
+{"time":"2025-04-07T16:30:56.606908178+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250407_163056-f24x85mu/logs/debug-core.log"}
+{"time":"2025-04-07T16:30:56.985960195+05:30","level":"INFO","msg":"created new stream","id":"f24x85mu"}
+{"time":"2025-04-07T16:30:56.986020114+05:30","level":"INFO","msg":"stream: started","id":"f24x85mu"}
+{"time":"2025-04-07T16:30:56.98611671+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"f24x85mu"}
+{"time":"2025-04-07T16:30:56.986470844+05:30","level":"INFO","msg":"handler: started","stream_id":"f24x85mu"}
+{"time":"2025-04-07T16:30:56.986488425+05:30","level":"INFO","msg":"sender: started","stream_id":"f24x85mu"}
+{"time":"2025-04-07T16:30:57.389807567+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-07T16:32:25.335356357+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-07T16:32:25.335498798+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-07T16:32:26.296127174+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.335896231,"progress":"1.8KB/1.8KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.335872991,"progress":"245B/245B"},{"desc":"uploading config.yaml","runtime_seconds":0.039017634,"progress":"1.1KB/1.1KB"}],"total_operations":3}}
+{"time":"2025-04-07T16:32:27.308714729+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-07T16:32:28.122790459+05:30","level":"INFO","msg":"stream: closing","id":"f24x85mu"}
+{"time":"2025-04-07T16:32:28.122815018+05:30","level":"INFO","msg":"handler: closed","stream_id":"f24x85mu"}
+{"time":"2025-04-07T16:32:28.122836166+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"f24x85mu"}
+{"time":"2025-04-07T16:32:28.122914622+05:30","level":"INFO","msg":"sender: closed","stream_id":"f24x85mu"}
+{"time":"2025-04-07T16:32:28.122971487+05:30","level":"INFO","msg":"stream: closed","id":"f24x85mu"}

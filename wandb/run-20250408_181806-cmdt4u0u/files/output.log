@@ -1,0 +1,27 @@
+Using device: cuda
+Training with EfficientNetV2:
+Training Progress:  30%|████████████████████████▉                                                          | 6/20 [03:24<07:56, 34.03s/epoch]
+Epoch [1/20] → Train Loss: 1.1257, Train Acc: 67.35% | Val Loss: 0.5046, Val Acc: 84.04%
+
+Current Learning Rate: 0.000100
+Epoch [2/20] → Train Loss: 0.4371, Train Acc: 86.61% | Val Loss: 0.4522, Val Acc: 85.79%
+
+Current Learning Rate: 0.000100
+Epoch [3/20] → Train Loss: 0.2679, Train Acc: 91.89% | Val Loss: 0.4659, Val Acc: 86.19%
+
+Current Learning Rate: 0.000100
+Epoch [4/20] → Train Loss: 0.1792, Train Acc: 94.39% | Val Loss: 0.4809, Val Acc: 85.84%
+
+Current Learning Rate: 0.000100
+Epoch [5/20] → Train Loss: 0.1330, Train Acc: 96.00% | Val Loss: 0.5208, Val Acc: 85.89%
+
+Current Learning Rate: 0.000050
+Epoch [6/20] → Train Loss: 0.0794, Train Acc: 97.59% | Val Loss: 0.4951, Val Acc: 87.14%
+
+Current Learning Rate: 0.000050
+Epoch [7/20] → Train Loss: 0.0629, Train Acc: 97.94% | Val Loss: 0.5119, Val Acc: 86.54%
+
+Current Learning Rate: 0.000050
+Early stopping triggered after 5 epochs without improvement.
+Training complete. Best validation loss = 0.4522; best validation accuracy = 87.14%
+Resting the machine for 120 seconds.

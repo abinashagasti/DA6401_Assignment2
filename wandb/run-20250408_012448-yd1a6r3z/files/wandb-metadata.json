@@ -1,0 +1,42 @@
+{
+  "os": "Linux-6.11.0-21-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.9",
+  "startedAt": "2025-04-07T19:54:48.581463Z",
+  "program": "/home/abinash/DA6401/DA6401_Assignment2/sweep_train.py",
+  "codePath": "sweep_train.py",
+  "git": {
+    "remote": "https://github.com/abinashagasti/DA6401_Assignment2.git",
+    "commit": "e54f3e9109ba66e518fb96b3ac25b49b62e0bebf"
+  },
+  "email": "ee20d201@smail.iitm.ac.in",
+  "root": "/home/abinash/DA6401/DA6401_Assignment2",
+  "host": "fmlpc",
+  "executable": "/home/abinash/miniconda3/envs/da6401/bin/python",
+  "codePathLocal": "sweep_train.py",
+  "cpu_count": 24,
+  "cpu_count_logical": 32,
+  "gpu": "NVIDIA RTX A6000",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "2013991550976",
+      "used": "582089166848"
+    }
+  },
+  "memory": {
+    "total": "134834429952"
+  },
+  "cpu": {
+    "count": 24,
+    "countLogical": 32
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA RTX A6000",
+      "memoryTotal": "51527024640",
+      "cudaCores": 10752,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

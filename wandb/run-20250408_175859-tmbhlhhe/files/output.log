@@ -1,0 +1,3 @@
+Using device: cuda
+Training with ResNet18:
+Training Progress:   0%|                                                                                           | 0/20 [00:01<?, ?epoch/s]

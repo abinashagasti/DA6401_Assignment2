@@ -1,0 +1,16 @@
+{"time":"2025-04-08T01:05:07.546887174+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_010507-lghpwym1/logs/debug-core.log"}
+{"time":"2025-04-08T01:05:07.913011186+05:30","level":"INFO","msg":"created new stream","id":"lghpwym1"}
+{"time":"2025-04-08T01:05:07.913064781+05:30","level":"INFO","msg":"stream: started","id":"lghpwym1"}
+{"time":"2025-04-08T01:05:07.913146079+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"lghpwym1"}
+{"time":"2025-04-08T01:05:07.913198571+05:30","level":"INFO","msg":"handler: started","stream_id":"lghpwym1"}
+{"time":"2025-04-08T01:05:07.913397042+05:30","level":"INFO","msg":"sender: started","stream_id":"lghpwym1"}
+{"time":"2025-04-08T01:05:08.236878179+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T01:13:43.370057856+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T01:13:43.370137339+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T01:13:44.372634297+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.310981586,"progress":"5.2KB/5.2KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.310963769,"progress":"249B/249B"}],"total_operations":2}}
+{"time":"2025-04-08T01:13:45.573285506+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T01:13:45.877928191+05:30","level":"INFO","msg":"stream: closing","id":"lghpwym1"}
+{"time":"2025-04-08T01:13:45.877947463+05:30","level":"INFO","msg":"handler: closed","stream_id":"lghpwym1"}
+{"time":"2025-04-08T01:13:45.877959292+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"lghpwym1"}
+{"time":"2025-04-08T01:13:45.878038714+05:30","level":"INFO","msg":"sender: closed","stream_id":"lghpwym1"}
+{"time":"2025-04-08T01:13:45.878108361+05:30","level":"INFO","msg":"stream: closed","id":"lghpwym1"}

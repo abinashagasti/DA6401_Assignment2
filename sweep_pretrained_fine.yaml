@@ -1,0 +1,26 @@
+program: sweep_train.py  # or your training script name
+method: bayes  # "grid", "random", or "bayes"
+metric:
+  name: val_accuracy
+  goal: maximize
+
+parameters:
+  learning_rate:
+    min: 0.00001
+    max: 0.001
+
+  weight_decay:
+    min: 0.000001
+    max: 0.001
+
+  batch_size:
+    values: [32, 64]
+
+  optimizer:
+    values: ["adam", "sgd"]
+
+  model_type:
+    values: ["EfficientNetV2"]
+    
+  trainable_layers:
+    values: [1, 2, 3, 5, 7, 10]

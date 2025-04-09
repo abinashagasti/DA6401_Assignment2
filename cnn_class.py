@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torchvision.models as models
 
 class CNN(nn.Module):
-    def __init__(self, num_filters=[32, 64, 128, 256, 512], kernel_size=[5,5,5,3,3], num_dense=[256], num_classes=10, activation=F.relu, use_batchnorm=False, use_dropout=False, dropout_prob=0.2, padding=1):
+    def __init__(self, num_filters=[32, 64, 128, 256, 512], kernel_size=[5,5,5,3,3], num_dense=[256], num_classes=10, activation=F.relu, use_batchnorm=False, use_dropout=False, dropout_prob=0.2, padding=1, img_size = 224):
         super(CNN, self).__init__()
         self.activation = activation  # Set activation function
         self.pool = nn.MaxPool2d(2, 2)
@@ -19,14 +19,15 @@ class CNN(nn.Module):
         self.fcs = nn.ModuleList()
         in_channels = 3  # Initial input channels (RGB)
         for i in range(len(num_filters)):
-            pad = kernel_size[i] // 2
-            self.convs.append(nn.Conv2d(in_channels, num_filters[i], kernel_size[i], padding=pad))
+            if padding is None:
+                padding = kernel_size[i] // 2
+            self.convs.append(nn.Conv2d(in_channels, num_filters[i], kernel_size[i], padding=padding))
             if self.use_batchnorm:
                 self.bns.append(nn.BatchNorm2d(num_filters[i]))
             in_channels = num_filters[i]  # Update input channels for next layer
 
         # Dummy input to calculate flattened size
-        self.flattened_size = self._get_flattened_size((3, 224, 224))
+        self.flattened_size = self._get_flattened_size((3, img_size, img_size))
         
         # Fully connected layers
         input_size = self.flattened_size
@@ -98,6 +99,12 @@ def pretrained_model(model_type: str = "ResNet18", num_classes = 10, k = 1):
     elif model_type == "VisionTransformer":
         model = models.vit_b_16(weights=models.ViT_B_16_Weights.DEFAULT)
         model.heads.head = nn.Linear(model.heads.head.in_features, num_classes)
+    elif model_type == "GoogLeNet":
+        model = models.googlenet(weights=models.GoogLeNet_Weights.DEFAULT)
+        model.fc = nn.Linear(model.fc.in_features, num_classes)
+    elif model_type == "InceptionV3":
+        model = models.inception_v3(weights=models.Inception_V3_Weights.DEFAULT)
+        model.fc = nn.Linear(model.fc.in_features, num_classes)
 
     # Freeze all layers
     if k != 1:

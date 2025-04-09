@@ -1,0 +1,27 @@
+Using device: cuda
+Training with VisionTransformer:
+Training Progress:  30%|████████████████████████▉                                                          | 6/20 [08:27<19:43, 84.53s/epoch]
+Epoch [1/20] → Train Loss: 0.8251, Train Acc: 72.96% | Val Loss: 0.7067, Val Acc: 77.64%
+
+Current Learning Rate: 0.000100
+Epoch [2/20] → Train Loss: 0.4041, Train Acc: 87.10% | Val Loss: 0.6251, Val Acc: 80.54%
+
+Current Learning Rate: 0.000100
+Epoch [3/20] → Train Loss: 0.2672, Train Acc: 91.20% | Val Loss: 0.6928, Val Acc: 79.54%
+
+Current Learning Rate: 0.000100
+Epoch [4/20] → Train Loss: 0.2178, Train Acc: 93.25% | Val Loss: 0.6937, Val Acc: 80.59%
+
+Current Learning Rate: 0.000100
+Epoch [5/20] → Train Loss: 0.1513, Train Acc: 95.16% | Val Loss: 0.7180, Val Acc: 79.19%
+
+Current Learning Rate: 0.000050
+Epoch [6/20] → Train Loss: 0.0670, Train Acc: 98.11% | Val Loss: 0.6720, Val Acc: 82.49%
+
+Current Learning Rate: 0.000050
+Epoch [7/20] → Train Loss: 0.0395, Train Acc: 98.81% | Val Loss: 0.7283, Val Acc: 81.64%
+
+Current Learning Rate: 0.000050
+Early stopping triggered after 5 epochs without improvement.
+Training complete. Best validation loss = 0.6251; best validation accuracy = 82.49%
+Resting the machine for 120 seconds.

@@ -1,0 +1,16 @@
+{"time":"2025-04-08T00:07:20.991649797+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_000720-yy2kfka6/logs/debug-core.log"}
+{"time":"2025-04-08T00:07:21.393099729+05:30","level":"INFO","msg":"created new stream","id":"yy2kfka6"}
+{"time":"2025-04-08T00:07:21.393154658+05:30","level":"INFO","msg":"stream: started","id":"yy2kfka6"}
+{"time":"2025-04-08T00:07:21.393215871+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"yy2kfka6"}
+{"time":"2025-04-08T00:07:21.393440034+05:30","level":"INFO","msg":"sender: started","stream_id":"yy2kfka6"}
+{"time":"2025-04-08T00:07:21.393470578+05:30","level":"INFO","msg":"handler: started","stream_id":"yy2kfka6"}
+{"time":"2025-04-08T00:07:21.726519591+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T00:07:48.774673492+05:30","level":"INFO","msg":"stream: closing","id":"yy2kfka6"}
+{"time":"2025-04-08T00:07:48.774690127+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T00:07:48.774717789+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T00:07:49.920674276+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T00:08:50.467307902+05:30","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/ee20d201-indian-institute-of-technology-madras/DA6401_Assignment_2/yy2kfka6/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-04-08T00:08:53.033435542+05:30","level":"INFO","msg":"handler: closed","stream_id":"yy2kfka6"}
+{"time":"2025-04-08T00:08:53.033493301+05:30","level":"INFO","msg":"sender: closed","stream_id":"yy2kfka6"}
+{"time":"2025-04-08T00:08:53.033489726+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"yy2kfka6"}
+{"time":"2025-04-08T00:08:53.033654264+05:30","level":"INFO","msg":"stream: closed","id":"yy2kfka6"}

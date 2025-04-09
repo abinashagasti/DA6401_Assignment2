@@ -1,0 +1,17 @@
+{"time":"2025-04-07T21:49:12.357478799+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250407_214912-i8yzmmkw/logs/debug-core.log"}
+{"time":"2025-04-07T21:49:12.740764503+05:30","level":"INFO","msg":"created new stream","id":"i8yzmmkw"}
+{"time":"2025-04-07T21:49:12.740860285+05:30","level":"INFO","msg":"stream: started","id":"i8yzmmkw"}
+{"time":"2025-04-07T21:49:12.74097224+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"i8yzmmkw"}
+{"time":"2025-04-07T21:49:12.741003082+05:30","level":"INFO","msg":"sender: started","stream_id":"i8yzmmkw"}
+{"time":"2025-04-07T21:49:12.741061556+05:30","level":"INFO","msg":"handler: started","stream_id":"i8yzmmkw"}
+{"time":"2025-04-07T21:49:13.07037149+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-07T21:52:14.049547036+05:30","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/ee20d201-indian-institute-of-technology-madras/DA6401_Assignment_2/i8yzmmkw/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-04-07T21:53:34.935260035+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-07T21:53:34.935382653+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-07T21:53:35.898974544+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading config.yaml","runtime_seconds":0.128434707,"progress":"1.1KB/1.1KB"}],"total_operations":1}}
+{"time":"2025-04-07T21:53:36.530030302+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-07T21:53:36.84212484+05:30","level":"INFO","msg":"stream: closing","id":"i8yzmmkw"}
+{"time":"2025-04-07T21:53:36.842148072+05:30","level":"INFO","msg":"handler: closed","stream_id":"i8yzmmkw"}
+{"time":"2025-04-07T21:53:36.842160182+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"i8yzmmkw"}
+{"time":"2025-04-07T21:53:36.842179404+05:30","level":"INFO","msg":"sender: closed","stream_id":"i8yzmmkw"}
+{"time":"2025-04-07T21:53:36.842252138+05:30","level":"INFO","msg":"stream: closed","id":"i8yzmmkw"}

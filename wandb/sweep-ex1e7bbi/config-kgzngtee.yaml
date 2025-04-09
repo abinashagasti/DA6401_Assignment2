@@ -1,0 +1,39 @@
+wandb_version: 1
+
+activation:
+  value: Mish
+batch_size:
+  value: 64
+data_augmentation:
+  value: true
+dropout_prob:
+  value: 0.15734296803907694
+img_size:
+  value: 224
+kernel_size:
+  value:
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+learning_rate:
+  value: 0.0006061727759663953
+num_dense:
+  value:
+  - 512
+num_filters:
+  value:
+  - 32
+  - 64
+  - 128
+  - 256
+  - 512
+optimizer:
+  value: sgd
+padding:
+  value: None
+use_batchnorm:
+  value: true
+weight_decay:
+  value: 0.00011286216595797754

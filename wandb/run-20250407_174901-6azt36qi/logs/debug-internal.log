@@ -1,0 +1,16 @@
+{"time":"2025-04-07T17:49:01.243972791+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250407_174901-6azt36qi/logs/debug-core.log"}
+{"time":"2025-04-07T17:49:01.628389713+05:30","level":"INFO","msg":"created new stream","id":"6azt36qi"}
+{"time":"2025-04-07T17:49:01.628504175+05:30","level":"INFO","msg":"stream: started","id":"6azt36qi"}
+{"time":"2025-04-07T17:49:01.628602414+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"6azt36qi"}
+{"time":"2025-04-07T17:49:01.628690005+05:30","level":"INFO","msg":"handler: started","stream_id":"6azt36qi"}
+{"time":"2025-04-07T17:49:01.628769175+05:30","level":"INFO","msg":"sender: started","stream_id":"6azt36qi"}
+{"time":"2025-04-07T17:49:01.990049323+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-07T17:54:01.782129411+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-07T17:54:01.782196646+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-07T17:54:02.746732314+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.3883969,"progress":"2.8KB/2.8KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.388383308,"progress":"248B/248B"},{"desc":"uploading config.yaml","runtime_seconds":0.080637773,"progress":"1.1KB/1.1KB"},{"desc":"uploading summary","runtime_seconds":0.02159393}],"total_operations":4}}
+{"time":"2025-04-07T17:54:03.089140936+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-07T17:54:03.393372947+05:30","level":"INFO","msg":"stream: closing","id":"6azt36qi"}
+{"time":"2025-04-07T17:54:03.39339862+05:30","level":"INFO","msg":"handler: closed","stream_id":"6azt36qi"}
+{"time":"2025-04-07T17:54:03.393409922+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"6azt36qi"}
+{"time":"2025-04-07T17:54:03.393496678+05:30","level":"INFO","msg":"sender: closed","stream_id":"6azt36qi"}
+{"time":"2025-04-07T17:54:03.393551262+05:30","level":"INFO","msg":"stream: closed","id":"6azt36qi"}

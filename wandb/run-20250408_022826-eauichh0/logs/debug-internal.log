@@ -1,0 +1,16 @@
+{"time":"2025-04-08T02:28:26.719531407+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_022826-eauichh0/logs/debug-core.log"}
+{"time":"2025-04-08T02:28:27.116311352+05:30","level":"INFO","msg":"created new stream","id":"eauichh0"}
+{"time":"2025-04-08T02:28:27.116373038+05:30","level":"INFO","msg":"stream: started","id":"eauichh0"}
+{"time":"2025-04-08T02:28:27.116485905+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"eauichh0"}
+{"time":"2025-04-08T02:28:27.11658534+05:30","level":"INFO","msg":"sender: started","stream_id":"eauichh0"}
+{"time":"2025-04-08T02:28:27.116722771+05:30","level":"INFO","msg":"handler: started","stream_id":"eauichh0"}
+{"time":"2025-04-08T02:28:27.438855911+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T02:39:17.374454911+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T02:39:17.374550103+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T02:39:18.378058822+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.423861604,"progress":"6.6KB/6.6KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.423845162,"progress":"259B/259B"},{"desc":"uploading config.yaml","runtime_seconds":0.126088616,"progress":"1.1KB/1.1KB"}],"total_operations":3}}
+{"time":"2025-04-08T02:39:19.381891452+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T02:39:19.687589585+05:30","level":"INFO","msg":"stream: closing","id":"eauichh0"}
+{"time":"2025-04-08T02:39:19.687610817+05:30","level":"INFO","msg":"handler: closed","stream_id":"eauichh0"}
+{"time":"2025-04-08T02:39:19.687623595+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"eauichh0"}
+{"time":"2025-04-08T02:39:19.687635146+05:30","level":"INFO","msg":"sender: closed","stream_id":"eauichh0"}
+{"time":"2025-04-08T02:39:19.687719587+05:30","level":"INFO","msg":"stream: closed","id":"eauichh0"}

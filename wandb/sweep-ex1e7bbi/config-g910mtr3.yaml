@@ -1,0 +1,39 @@
+wandb_version: 1
+
+activation:
+  value: GELU
+batch_size:
+  value: 64
+data_augmentation:
+  value: true
+dropout_prob:
+  value: 0.054439101122817024
+img_size:
+  value: 224
+kernel_size:
+  value:
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+learning_rate:
+  value: 0.0007075232371956089
+num_dense:
+  value:
+  - 512
+num_filters:
+  value:
+  - 32
+  - 64
+  - 128
+  - 256
+  - 512
+optimizer:
+  value: adam
+padding:
+  value: None
+use_batchnorm:
+  value: true
+weight_decay:
+  value: 0.0004942995849014461

@@ -3,8 +3,8 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torch.multiprocessing as mp
-from tqdm import tqdm
 
+import time
 import wandb
 import yaml
 
@@ -14,8 +14,8 @@ from utils import *
 
 def train():
 
-    # wandb.init() # Initialize wandb run
-    wandb.init(resume="allow")
+    wandb.init() # Initialize wandb run
+    # wandb.init(resume="allow")
     config = wandb.config # Config for wandb sweep
 
     # Experiment name
@@ -26,7 +26,7 @@ def train():
     train_dir = "../inaturalist_12K/train"
     test_dir = "../inaturalist_12K/val"
 
-    max_epochs = 10
+    max_epochs = 50
     learning_rate = config.learning_rate
     batch_size = config.batch_size
 
@@ -34,7 +34,7 @@ def train():
     print(f"Using device: {device}")
     num_workers = 16 if torch.cuda.is_available() else 4 if torch.backends.mps.is_available() else 1
 
-    train_loader, val_loader, _ = dataset_split(train_dir, test_dir, batch_size=batch_size, num_workers=num_workers, augmentation=config.data_augmentation)
+    train_loader, val_loader, _ = dataset_split(train_dir, test_dir, batch_size=batch_size, num_workers=num_workers, augmentation=config.data_augmentation, img_size=config.img_size)
 
     # Model instantiation with flexible hyperparameters
     # num_filters = [256, 128, 64, 32, 16]
@@ -46,31 +46,36 @@ def train():
     use_batchnorm = config.use_batchnorm
     activation = get_activation(config.activation)
 
-    model = CNN(num_filters=num_filters, num_dense=num_dense, kernel_size=kernel_size, activation=activation, use_batchnorm=use_batchnorm, use_dropout=use_dropout, dropout_prob=dropout_prob)
+    model = CNN(num_filters=num_filters, num_dense=num_dense, kernel_size=kernel_size, activation=activation, use_batchnorm=use_batchnorm, use_dropout=use_dropout, dropout_prob=dropout_prob, img_size=config.img_size)
     model = model.to(device)
 
     loss_fn = nn.CrossEntropyLoss() # Loss function
     optimizer = get_optimizer(optimizer_name=config.optimizer, model=model, learning_rate=learning_rate, weight_decay=config.weight_decay) # Optimizer
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=2)
 
     print(f"Training Parameters:")
     print(f"Learning Rate: {learning_rate}, num_filters: {num_filters}, kernel_size: {kernel_size}, num_dense: {num_dense}, batch_size: {batch_size}, dropout: {dropout_prob if use_dropout else None}, batchnorm: {use_batchnorm}")
-    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler=scheduler, device=device, max_epochs=max_epochs, patience_stop=7, wandb_log=True)
-    # test_loop(test_loader, model, loss_fn, device)
+    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler=scheduler, device=device, max_epochs=max_epochs, patience_stop=5, wandb_log=True)
+    print("Resting the machine for 60 seconds.")
+    time.sleep(60)
 
     wandb.finish()
 
 if __name__=="__main__":
-    mp.set_start_method('spawn')
-    with open("sweep1.yaml", "r") as file:
+    # mp.set_start_method('spawn')
+    with open("sweep4.yaml", "r") as file:
         sweep_config = yaml.safe_load(file) # Read yaml file to store hyperparameters 
 
     # Initialize sweep
-    # sweep_id = wandb.sweep(sweep_config, project="DA6401_Assignment_2")
+    sweep_id = wandb.sweep(sweep_config, project="DA6401_Assignment_2")
     entity = "ee20d201-indian-institute-of-technology-madras"
     project = "DA6401_Assignment_2"
-    sweep_id = "5t7ap5rq"
-    # api = wandb.Api()
+    # sweep_id = "5t7ap5rq" # sweep1.yaml
+    # sweep_id = "86x4jb7r" # sweep2.yaml
+    # sweep_id = "j1h5tb43" # sweep3.yaml
+    # sweep_id = "k9ldb4jj" # sweep1_100.yaml
+    # sweep_id = "ex1e7bbi" # sweep4.yaml, finetuning sweep
+    # api = wandb.Api() 
 
     # sweep = api.sweep(f"{entity}/{project}/{sweep_id}")
 
@@ -79,4 +84,4 @@ if __name__=="__main__":
     #     print(f"Sweep {sweep.id} stopped after {len(sweep.runs)} runs.")
 
     # Start sweep agent
-    wandb.agent(sweep_id, function=train, count=13, project=project)  # Run 10 experiments
+    wandb.agent(sweep_id, function=train, count=15, project=project)  # Run 10 experiments

@@ -1,0 +1,16 @@
+{"time":"2025-04-08T23:09:43.524392116+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_230943-s43heg48/logs/debug-core.log"}
+{"time":"2025-04-08T23:09:43.906838081+05:30","level":"INFO","msg":"created new stream","id":"s43heg48"}
+{"time":"2025-04-08T23:09:43.907097703+05:30","level":"INFO","msg":"stream: started","id":"s43heg48"}
+{"time":"2025-04-08T23:09:43.907223496+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"s43heg48"}
+{"time":"2025-04-08T23:09:43.907354463+05:30","level":"INFO","msg":"sender: started","stream_id":"s43heg48"}
+{"time":"2025-04-08T23:09:43.907451049+05:30","level":"INFO","msg":"handler: started","stream_id":"s43heg48"}
+{"time":"2025-04-08T23:09:44.254967892+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T23:16:48.891513999+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T23:16:48.891594059+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T23:16:49.894492489+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-summary.json","runtime_seconds":0.380420901,"progress":"249B/249B"},{"desc":"uploading output.log","runtime_seconds":0.380409771,"progress":"3.2KB/3.2KB"},{"desc":"uploading config.yaml","runtime_seconds":0.070421858,"progress":"823B/823B"}],"total_operations":3}}
+{"time":"2025-04-08T23:16:50.167364597+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T23:16:50.456336755+05:30","level":"INFO","msg":"stream: closing","id":"s43heg48"}
+{"time":"2025-04-08T23:16:50.456358857+05:30","level":"INFO","msg":"handler: closed","stream_id":"s43heg48"}
+{"time":"2025-04-08T23:16:50.456372782+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"s43heg48"}
+{"time":"2025-04-08T23:16:50.456458148+05:30","level":"INFO","msg":"sender: closed","stream_id":"s43heg48"}
+{"time":"2025-04-08T23:16:50.456509362+05:30","level":"INFO","msg":"stream: closed","id":"s43heg48"}

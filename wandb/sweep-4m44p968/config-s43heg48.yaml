@@ -1,0 +1,14 @@
+wandb_version: 1
+
+batch_size:
+  value: 64
+learning_rate:
+  value: 0.0009313602971679192
+model_type:
+  value: EfficientNetV2
+optimizer:
+  value: adam
+trainable_layers:
+  value: 10
+weight_decay:
+  value: 0.0007792720479443744

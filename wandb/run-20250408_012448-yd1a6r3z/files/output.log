@@ -1,0 +1,156 @@
+Using device: cuda
+Training Parameters:
+Learning Rate: 0.0003751361061209714, num_filters: [32, 64, 128, 256, 512], kernel_size: [3, 3, 3, 3, 3], num_dense: [512], batch_size: 64, dropout: 0.38638108203714544, batchnorm: True
+Training Progress:  20%|████████████████▍                                                                 | 10/50 [01:58<07:52, 11.81s/epoch]
+Epoch [1/50] → Train Loss: 2.2943, Train Acc: 19.79% | Val Loss: 2.0330, Val Acc: 26.66%
+
+Current Learning Rate: 0.000375
+Epoch [2/50] → Train Loss: 2.0465, Train Acc: 26.88% | Val Loss: 1.9538, Val Acc: 29.91%
+
+Current Learning Rate: 0.000375
+Epoch [3/50] → Train Loss: 1.9991, Train Acc: 28.76% | Val Loss: 1.9244, Val Acc: 33.22%
+
+Current Learning Rate: 0.000375
+Epoch [4/50] → Train Loss: 1.9495, Train Acc: 31.15% | Val Loss: 1.9045, Val Acc: 32.87%
+
+Current Learning Rate: 0.000375
+Epoch [5/50] → Train Loss: 1.9243, Train Acc: 31.90% | Val Loss: 1.8599, Val Acc: 34.42%
+
+Current Learning Rate: 0.000375
+Epoch [6/50] → Train Loss: 1.8920, Train Acc: 33.40% | Val Loss: 1.8386, Val Acc: 36.07%
+
+Current Learning Rate: 0.000375
+Epoch [7/50] → Train Loss: 1.8689, Train Acc: 34.44% | Val Loss: 1.8245, Val Acc: 36.32%
+
+Current Learning Rate: 0.000375
+Epoch [8/50] → Train Loss: 1.8416, Train Acc: 35.06% | Val Loss: 1.8484, Val Acc: 34.27%
+
+Current Learning Rate: 0.000375
+Epoch [9/50] → Train Loss: 1.8089, Train Acc: 37.25% | Val Loss: 1.7982, Val Acc: 37.87%
+
+Current Learning Rate: 0.000375
+Epoch [10/50] → Train Loss: 1.7838, Train Acc: 37.01% | Val Loss: 1.7955, Val Acc: 39.27%
+
+Current Learning Rate: 0.000375
+Epoch [11/50] → Train Loss: 1.7708, Train Acc: 38.06% | Val Loss: 1.7700, Val Acc: 38.62%
+
+Current Learning Rate: 0.000375
+Epoch [12/50] → Train Loss: 1.7471, Train Acc: 38.89% | Val Loss: 1.7551, Val Acc: 38.97%
+
+Current Learning Rate: 0.000375
+Epoch [13/50] → Train Loss: 1.7231, Train Acc: 39.00% | Val Loss: 1.7496, Val Acc: 39.57%
+
+Current Learning Rate: 0.000375
+Epoch [14/50] → Train Loss: 1.7123, Train Acc: 39.67% | Val Loss: 1.7316, Val Acc: 38.67%
+
+Current Learning Rate: 0.000375
+Epoch [15/50] → Train Loss: 1.6903, Train Acc: 40.88% | Val Loss: 1.7418, Val Acc: 39.67%
+
+Current Learning Rate: 0.000375
+Epoch [16/50] → Train Loss: 1.6492, Train Acc: 42.14% | Val Loss: 1.7265, Val Acc: 39.97%
+
+Current Learning Rate: 0.000375
+Epoch [17/50] → Train Loss: 1.6472, Train Acc: 42.09% | Val Loss: 1.7119, Val Acc: 39.97%
+
+Current Learning Rate: 0.000375
+Epoch [18/50] → Train Loss: 1.6253, Train Acc: 42.90% | Val Loss: 1.7375, Val Acc: 38.97%
+
+Current Learning Rate: 0.000375
+Epoch [19/50] → Train Loss: 1.6095, Train Acc: 44.11% | Val Loss: 1.6907, Val Acc: 41.37%
+
+Current Learning Rate: 0.000375
+Epoch [20/50] → Train Loss: 1.5959, Train Acc: 44.22% | Val Loss: 1.7039, Val Acc: 41.02%
+
+Current Learning Rate: 0.000375
+Epoch [21/50] → Train Loss: 1.5694, Train Acc: 45.42% | Val Loss: 1.6842, Val Acc: 41.97%
+
+Current Learning Rate: 0.000375
+Epoch [22/50] → Train Loss: 1.5575, Train Acc: 45.96% | Val Loss: 1.6896, Val Acc: 42.42%
+
+Current Learning Rate: 0.000375
+Epoch [23/50] → Train Loss: 1.5349, Train Acc: 46.70% | Val Loss: 1.6634, Val Acc: 42.72%
+
+Current Learning Rate: 0.000375
+Epoch [24/50] → Train Loss: 1.5197, Train Acc: 46.98% | Val Loss: 1.6692, Val Acc: 41.52%
+
+Current Learning Rate: 0.000375
+Epoch [25/50] → Train Loss: 1.4923, Train Acc: 48.24% | Val Loss: 1.6730, Val Acc: 42.07%
+
+Current Learning Rate: 0.000375
+Epoch [26/50] → Train Loss: 1.4655, Train Acc: 48.93% | Val Loss: 1.6598, Val Acc: 42.92%
+
+Current Learning Rate: 0.000375
+Epoch [27/50] → Train Loss: 1.4638, Train Acc: 49.02% | Val Loss: 1.6803, Val Acc: 41.67%
+
+Current Learning Rate: 0.000375
+Epoch [28/50] → Train Loss: 1.4369, Train Acc: 50.08% | Val Loss: 1.6561, Val Acc: 42.92%
+
+Current Learning Rate: 0.000375
+Epoch [29/50] → Train Loss: 1.4102, Train Acc: 51.49% | Val Loss: 1.6486, Val Acc: 42.52%
+
+Current Learning Rate: 0.000375
+Epoch [30/50] → Train Loss: 1.3943, Train Acc: 51.61% | Val Loss: 1.6578, Val Acc: 43.12%
+
+Current Learning Rate: 0.000375
+Epoch [31/50] → Train Loss: 1.3821, Train Acc: 52.04% | Val Loss: 1.6504, Val Acc: 44.12%
+
+Current Learning Rate: 0.000375
+Epoch [32/50] → Train Loss: 1.3651, Train Acc: 52.46% | Val Loss: 1.6555, Val Acc: 41.92%
+
+Current Learning Rate: 0.000188
+Epoch [33/50] → Train Loss: 1.3067, Train Acc: 55.07% | Val Loss: 1.6222, Val Acc: 43.97%
+
+Current Learning Rate: 0.000188
+Epoch [34/50] → Train Loss: 1.2834, Train Acc: 55.88% | Val Loss: 1.6203, Val Acc: 44.42%
+
+Current Learning Rate: 0.000188
+Epoch [35/50] → Train Loss: 1.2720, Train Acc: 56.15% | Val Loss: 1.6177, Val Acc: 44.72%
+
+Current Learning Rate: 0.000188
+Epoch [36/50] → Train Loss: 1.2675, Train Acc: 56.17% | Val Loss: 1.6154, Val Acc: 45.57%
+
+Current Learning Rate: 0.000188
+Epoch [37/50] → Train Loss: 1.2420, Train Acc: 57.50% | Val Loss: 1.6257, Val Acc: 44.87%
+
+Current Learning Rate: 0.000188
+Epoch [38/50] → Train Loss: 1.2338, Train Acc: 56.99% | Val Loss: 1.6110, Val Acc: 44.72%
+
+Current Learning Rate: 0.000188
+Epoch [39/50] → Train Loss: 1.2275, Train Acc: 58.20% | Val Loss: 1.6230, Val Acc: 44.17%
+
+Current Learning Rate: 0.000188
+Epoch [40/50] → Train Loss: 1.2279, Train Acc: 57.85% | Val Loss: 1.6012, Val Acc: 45.02%
+
+Current Learning Rate: 0.000188
+Epoch [41/50] → Train Loss: 1.2166, Train Acc: 58.45% | Val Loss: 1.6245, Val Acc: 44.02%
+
+Current Learning Rate: 0.000188
+Epoch [42/50] → Train Loss: 1.1977, Train Acc: 59.44% | Val Loss: 1.6096, Val Acc: 44.82%
+
+Current Learning Rate: 0.000188
+Epoch [43/50] → Train Loss: 1.1850, Train Acc: 59.40% | Val Loss: 1.6024, Val Acc: 45.27%
+
+Current Learning Rate: 0.000094
+Epoch [44/50] → Train Loss: 1.1541, Train Acc: 60.69% | Val Loss: 1.5842, Val Acc: 45.67%
+
+Current Learning Rate: 0.000094
+Epoch [45/50] → Train Loss: 1.1327, Train Acc: 61.49% | Val Loss: 1.5943, Val Acc: 45.67%
+
+Current Learning Rate: 0.000094
+Epoch [46/50] → Train Loss: 1.1311, Train Acc: 61.69% | Val Loss: 1.5894, Val Acc: 45.32%
+
+Current Learning Rate: 0.000094
+Epoch [47/50] → Train Loss: 1.1373, Train Acc: 61.26% | Val Loss: 1.5891, Val Acc: 46.47%
+
+Current Learning Rate: 0.000047
+Epoch [48/50] → Train Loss: 1.1205, Train Acc: 62.01% | Val Loss: 1.5839, Val Acc: 46.17%
+
+Current Learning Rate: 0.000047
+Epoch [49/50] → Train Loss: 1.1095, Train Acc: 62.34% | Val Loss: 1.5805, Val Acc: 46.32%
+
+Current Learning Rate: 0.000047
+Epoch [50/50] → Train Loss: 1.1193, Train Acc: 61.42% | Val Loss: 1.5751, Val Acc: 46.67%
+
+Current Learning Rate: 0.000047
+Training complete. Best validation loss = 1.5751; best validation accuracy = 46.67%
+Resting the machine for 60 seconds.

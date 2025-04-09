@@ -1,0 +1,27 @@
+Using device: cuda
+Training with ResNet50:
+Training Progress:  30%|████████████████████████▉                                                          | 6/20 [02:23<05:34, 23.88s/epoch]
+Epoch [1/20] → Train Loss: 1.1250, Train Acc: 67.09% | Val Loss: 0.5677, Val Acc: 82.69%
+
+Current Learning Rate: 0.000100
+Epoch [2/20] → Train Loss: 0.4165, Train Acc: 86.70% | Val Loss: 0.4853, Val Acc: 85.09%
+
+Current Learning Rate: 0.000100
+Epoch [3/20] → Train Loss: 0.2302, Train Acc: 92.67% | Val Loss: 0.5224, Val Acc: 84.44%
+
+Current Learning Rate: 0.000100
+Epoch [4/20] → Train Loss: 0.1597, Train Acc: 95.19% | Val Loss: 0.5295, Val Acc: 84.89%
+
+Current Learning Rate: 0.000100
+Epoch [5/20] → Train Loss: 0.1155, Train Acc: 96.38% | Val Loss: 0.5518, Val Acc: 84.84%
+
+Current Learning Rate: 0.000050
+Epoch [6/20] → Train Loss: 0.0686, Train Acc: 97.95% | Val Loss: 0.5413, Val Acc: 85.59%
+
+Current Learning Rate: 0.000050
+Epoch [7/20] → Train Loss: 0.0428, Train Acc: 98.75% | Val Loss: 0.5693, Val Acc: 84.99%
+
+Current Learning Rate: 0.000050
+Early stopping triggered after 5 epochs without improvement.
+Training complete. Best validation loss = 0.4853; best validation accuracy = 85.59%
+Resting the machine for 120 seconds.

@@ -1,0 +1,30 @@
+2025-04-08 02:08:11,072 INFO    Thread-1059 (_run_job):453024 [wandb_setup.py:_flush():67] Current SDK version is 0.19.9
+2025-04-08 02:08:11,073 INFO    Thread-1059 (_run_job):453024 [wandb_setup.py:_flush():67] Configure stats pid to 453024
+2025-04-08 02:08:11,073 INFO    Thread-1059 (_run_job):453024 [wandb_setup.py:_flush():67] Loading settings from /home/abinash/.config/wandb/settings
+2025-04-08 02:08:11,073 INFO    Thread-1059 (_run_job):453024 [wandb_setup.py:_flush():67] Loading settings from /home/abinash/DA6401/DA6401_Assignment2/wandb/settings
+2025-04-08 02:08:11,073 INFO    Thread-1059 (_run_job):453024 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-04-08 02:08:11,073 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:setup_run_log_directory():662] Logging user logs to /home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_020811-kgzngtee/logs/debug.log
+2025-04-08 02:08:11,074 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:setup_run_log_directory():663] Logging internal logs to /home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250408_020811-kgzngtee/logs/debug-internal.log
+2025-04-08 02:08:11,074 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():781] calling init triggers
+2025-04-08 02:08:11,074 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():786] wandb.init called with sweep_config: {'activation': 'Mish', 'batch_size': 64, 'data_augmentation': True, 'dropout_prob': 0.15734296803907694, 'img_size': 224, 'kernel_size': [3, 3, 3, 3, 3], 'learning_rate': 0.0006061727759663953, 'num_dense': [512], 'num_filters': [32, 64, 128, 256, 512], 'optimizer': 'sgd', 'padding': 'None', 'use_batchnorm': True, 'weight_decay': 0.00011286216595797754}
+config: {'_wandb': {}}
+2025-04-08 02:08:11,074 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():809] starting backend
+2025-04-08 02:08:11,074 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():813] sending inform_init request
+2025-04-08 02:08:11,076 INFO    Thread-1059 (_run_job):453024 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-04-08 02:08:11,076 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():823] backend started and connected
+2025-04-08 02:08:11,077 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_config_callback():1327] config_cb None None {'activation': 'Mish', 'batch_size': 64, 'data_augmentation': True, 'dropout_prob': 0.15734296803907694, 'img_size': 224, 'kernel_size': [3, 3, 3, 3, 3], 'learning_rate': 0.0006061727759663953, 'num_dense': [512], 'num_filters': [32, 64, 128, 256, 512], 'optimizer': 'sgd', 'padding': 'None', 'use_batchnorm': True, 'weight_decay': 0.00011286216595797754}
+2025-04-08 02:08:11,078 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():915] updated telemetry
+2025-04-08 02:08:11,081 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():939] communicating run to backend with 90.0 second timeout
+2025-04-08 02:08:11,781 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():1014] starting run threads in backend
+2025-04-08 02:08:11,827 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_console_start():2454] atexit reg
+2025-04-08 02:08:11,827 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_redirect():2306] redirect: wrap_raw
+2025-04-08 02:08:11,827 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_redirect():2371] Wrapping output streams.
+2025-04-08 02:08:11,827 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_redirect():2394] Redirects installed.
+2025-04-08 02:08:11,828 INFO    Thread-1059 (_run_job):453024 [wandb_init.py:init():1056] run started, returning control to user process
+2025-04-08 02:17:17,390 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_finish():2189] finishing run ee20d201-indian-institute-of-technology-madras/DA6401_Assignment_2/kgzngtee
+2025-04-08 02:17:17,391 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_atexit_cleanup():2419] got exitcode: 0
+2025-04-08 02:17:17,391 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_restore():2401] restore
+2025-04-08 02:17:17,392 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_restore():2407] restore done
+2025-04-08 02:17:19,817 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_footer_history_summary_info():4064] rendering history
+2025-04-08 02:17:19,818 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_footer_history_summary_info():4096] rendering summary
+2025-04-08 02:17:19,818 INFO    Thread-1059 (_run_job):453024 [wandb_run.py:_footer_sync_info():4025] logging synced files

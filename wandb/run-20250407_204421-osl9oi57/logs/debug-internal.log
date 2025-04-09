@@ -1,0 +1,16 @@
+{"time":"2025-04-07T20:44:21.708964495+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250407_204421-osl9oi57/logs/debug-core.log"}
+{"time":"2025-04-07T20:44:22.099841684+05:30","level":"INFO","msg":"created new stream","id":"osl9oi57"}
+{"time":"2025-04-07T20:44:22.099896363+05:30","level":"INFO","msg":"stream: started","id":"osl9oi57"}
+{"time":"2025-04-07T20:44:22.099995752+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"osl9oi57"}
+{"time":"2025-04-07T20:44:22.100113574+05:30","level":"INFO","msg":"sender: started","stream_id":"osl9oi57"}
+{"time":"2025-04-07T20:44:22.100229075+05:30","level":"INFO","msg":"handler: started","stream_id":"osl9oi57"}
+{"time":"2025-04-07T20:44:22.504439204+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-07T20:59:31.029793662+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-07T20:59:31.029826232+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-07T20:59:32.033182152+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-summary.json","runtime_seconds":0.401501775,"progress":"249B/249B"},{"desc":"uploading output.log","runtime_seconds":0.401482228,"progress":"10.0KB/10.0KB"},{"desc":"uploading config.yaml","runtime_seconds":0.077142687,"progress":"605B/605B"}],"total_operations":3}}
+{"time":"2025-04-07T20:59:32.987257723+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-07T20:59:33.30339742+05:30","level":"INFO","msg":"stream: closing","id":"osl9oi57"}
+{"time":"2025-04-07T20:59:33.303422695+05:30","level":"INFO","msg":"handler: closed","stream_id":"osl9oi57"}
+{"time":"2025-04-07T20:59:33.30343673+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"osl9oi57"}
+{"time":"2025-04-07T20:59:33.303520812+05:30","level":"INFO","msg":"sender: closed","stream_id":"osl9oi57"}
+{"time":"2025-04-07T20:59:33.303530661+05:30","level":"INFO","msg":"stream: closed","id":"osl9oi57"}

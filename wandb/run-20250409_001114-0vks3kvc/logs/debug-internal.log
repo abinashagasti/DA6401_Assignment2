@@ -1,0 +1,17 @@
+{"time":"2025-04-09T00:11:14.481725081+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/abinash/DA6401/DA6401_Assignment2/wandb/run-20250409_001114-0vks3kvc/logs/debug-core.log"}
+{"time":"2025-04-09T00:11:14.861856698+05:30","level":"INFO","msg":"created new stream","id":"0vks3kvc"}
+{"time":"2025-04-09T00:11:14.861934568+05:30","level":"INFO","msg":"stream: started","id":"0vks3kvc"}
+{"time":"2025-04-09T00:11:14.862033701+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"0vks3kvc"}
+{"time":"2025-04-09T00:11:14.862171569+05:30","level":"INFO","msg":"sender: started","stream_id":"0vks3kvc"}
+{"time":"2025-04-09T00:11:14.862308362+05:30","level":"INFO","msg":"handler: started","stream_id":"0vks3kvc"}
+{"time":"2025-04-09T00:11:15.275142315+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-09T00:18:08.387437294+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-09T00:18:08.387622199+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-09T00:18:09.350497134+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading data","runtime_seconds":8.313084483},{"desc":"uploading output.log","runtime_seconds":0.415895999,"progress":"3.0KB/3.0KB"},{"desc":"uploading wandb-summary.json","runtime_seconds":0.415874227,"progress":"247B/247B"},{"desc":"uploading config.yaml","runtime_seconds":0.134922637,"progress":"821B/821B"}],"total_operations":4}}
+{"time":"2025-04-09T00:18:09.566983709+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-09T00:19:01.289397364+05:30","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/ee20d201-indian-institute-of-technology-madras/DA6401_Assignment_2/0vks3kvc/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-04-09T00:19:04.194431316+05:30","level":"INFO","msg":"stream: closing","id":"0vks3kvc"}
+{"time":"2025-04-09T00:19:04.194464019+05:30","level":"INFO","msg":"handler: closed","stream_id":"0vks3kvc"}
+{"time":"2025-04-09T00:19:04.194478531+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"0vks3kvc"}
+{"time":"2025-04-09T00:19:04.194516431+05:30","level":"INFO","msg":"sender: closed","stream_id":"0vks3kvc"}
+{"time":"2025-04-09T00:19:04.194592673+05:30","level":"INFO","msg":"stream: closed","id":"0vks3kvc"}
