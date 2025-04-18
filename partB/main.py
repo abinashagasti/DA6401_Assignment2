@@ -4,7 +4,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 import torch.multiprocessing as mp
 
-from cnn_class import CNN, pretrained_model
+from pretrained_models import pretrained_model
 from utils import *
 
 

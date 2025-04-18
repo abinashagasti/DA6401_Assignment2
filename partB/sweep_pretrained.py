@@ -8,7 +8,7 @@ import time
 import wandb
 import yaml
 
-from cnn_class import CNN, pretrained_model
+from pretrained_models import pretrained_model
 from utils import *
 
 

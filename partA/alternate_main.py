@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 import wandb
 
-from cnn_class import CNN, pretrained_model
+from cnn_class import CNN
 from utils import *
 
 def main(use_pretrained: bool = False, wandb_login: bool = False):
