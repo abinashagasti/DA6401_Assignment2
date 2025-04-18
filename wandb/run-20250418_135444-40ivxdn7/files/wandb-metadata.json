@@ -1,0 +1,43 @@
+{
+  "os": "macOS-15.3-arm64-arm-64bit",
+  "python": "CPython 3.12.9",
+  "startedAt": "2025-04-18T08:24:44.918639Z",
+  "program": "/Users/abinashagasti/IITM/Academics/Deep Learning/DA6401_Assignment2/main.py",
+  "codePath": "main.py",
+  "git": {
+    "remote": "https://github.com/abinashagasti/DA6401_Assignment2.git",
+    "commit": "0638c2c344835421e4c88b01b9e30e582e9876c1"
+  },
+  "email": "ee20d201@smail.iitm.ac.in",
+  "root": "/Users/abinashagasti/IITM/Academics/Deep Learning/DA6401_Assignment2",
+  "host": "Abinashs-Laptop.local",
+  "executable": "/Users/abinashagasti/miniconda3/envs/da6401/bin/python",
+  "codePathLocal": "main.py",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "994662584320",
+      "used": "264699080704"
+    },
+    "/System/Volumes/Data": {
+      "total": "994662584320",
+      "used": "264699080704"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "cpu": {
+    "count": 10,
+    "countLogical": 10
+  },
+  "apple": {
+    "name": "Apple M1 Pro",
+    "ecpuCores": 2,
+    "pcpuCores": 8,
+    "gpuCores": 16,
+    "memoryGb": 16,
+    "ramTotalBytes": "17179869184"
+  }
+}

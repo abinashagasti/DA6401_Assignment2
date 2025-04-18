@@ -9,7 +9,11 @@ import wandb
 import seaborn as sns
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
+import numpy as np
 from PIL import Image
+import os
+import random
+from torchvision.io import read_image
 
 # Custom transform to ensure portrait orientation
 class EnsurePortrait:
@@ -245,6 +249,95 @@ def test_loop(test_loader, model, loss_fn, device=torch.device('cpu'), class_nam
         plt.show()
 
     return all_labels, all_preds
+
+def imshow(img, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]):
+    """Unnormalize and display image."""
+    img = img.cpu().numpy().transpose((1, 2, 0))
+    img = std * img + mean  # Unnormalize
+    img = np.clip(img, 0, 1)
+    return img
+
+import torch
+import os
+import random
+import matplotlib.pyplot as plt
+from PIL import Image
+import torchvision.transforms as transforms
+import wandb
+
+def obtain_sample_predictions(model, test_dir, device, class_names=None, img_size=224, wandb_log=True, show_plot=False):
+    model.eval()
+
+    # Preprocessing
+    transform_val = transforms.Compose([
+        transforms.Resize((img_size, img_size)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                             std=[0.229, 0.224, 0.225])
+    ])
+
+    class_folders = sorted([f for f in os.listdir(test_dir) if os.path.isdir(os.path.join(test_dir, f))])
+    if class_names is None:
+        class_names = class_folders
+
+    fig, axes = plt.subplots(3, 10, figsize=(14, 5))
+    correct = 0
+    total = 0
+
+    for col, class_name in enumerate(class_folders[:10]):  # 10 classes → 10 columns
+        class_path = os.path.join(test_dir, class_name)
+        image_files = [f for f in os.listdir(class_path) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
+        if len(image_files) < 3:
+            continue
+        sampled_files = random.sample(image_files, 3)
+
+        for row in range(3):
+            ax = axes[row, col]
+            img_file = sampled_files[row]
+            img_path = os.path.join(class_path, img_file)
+
+            # Load and preprocess image
+            image = Image.open(img_path).convert("RGB")
+            image_tensor = transform_val(image).unsqueeze(0).to(device)
+
+            with torch.no_grad():
+                output = model(image_tensor)
+                pred_idx = output.argmax(1).item()
+                pred_label = class_names[pred_idx]
+
+            is_correct = (pred_label == class_name)
+            if is_correct:
+                correct += 1
+            total += 1
+
+            # Plotting
+            raw_img = plt.imread(img_path)
+            ax.imshow(raw_img)
+
+            # True label on first row only (in blue)
+            if row == 0:
+                ax.set_title(f"True class: {class_name}", fontsize=9, color="blue")
+
+            # Predicted label in green/red based on correctness
+            color = "green" if is_correct else "red"
+            ax.set_xlabel(f"Predicted: {pred_label}", fontsize=8, color=color)
+
+            ax.set_xticks([])
+            ax.set_yticks([])
+
+    acc = 100 * correct / total
+    print(f"\nSample Prediction Accuracy: {acc:.2f}% ({correct}/{total})")
+    plt.tight_layout()
+
+    if wandb_log:
+        wandb.init(project="DA6401_Assignment_2", name="Sample Prediction Grid")
+        wandb.log({"Predictions Grid (3x10)": wandb.Image(fig)})
+        wandb.finish()
+
+    if show_plot:
+        plt.show()
+    else:
+        plt.close(fig)
 
 def get_activation(activation: str):
     if activation == "ReLU":

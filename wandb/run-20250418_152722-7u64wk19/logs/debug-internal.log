@@ -1,0 +1,16 @@
+{"time":"2025-04-18T15:27:22.798462+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/Users/abinashagasti/IITM/Academics/Deep Learning/DA6401_Assignment2/wandb/run-20250418_152722-7u64wk19/logs/debug-core.log"}
+{"time":"2025-04-18T15:27:22.909152+05:30","level":"INFO","msg":"created new stream","id":"7u64wk19"}
+{"time":"2025-04-18T15:27:22.909216+05:30","level":"INFO","msg":"stream: started","id":"7u64wk19"}
+{"time":"2025-04-18T15:27:22.909402+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"7u64wk19"}
+{"time":"2025-04-18T15:27:22.909449+05:30","level":"INFO","msg":"handler: started","stream_id":"7u64wk19"}
+{"time":"2025-04-18T15:27:22.909529+05:30","level":"INFO","msg":"sender: started","stream_id":"7u64wk19"}
+{"time":"2025-04-18T15:27:23.361465+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-18T15:27:24.714031+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-18T15:27:24.714887+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-18T15:27:25.720116+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading media/images/Predictions Grid (3x10)_0_60c329248f1b78d7064b.png","runtime_seconds":0.702349209,"progress":"871.1KB/871.1KB"},{"desc":"uploading output.log","runtime_seconds":0.702303666},{"desc":"uploading wandb-summary.json","runtime_seconds":0.702295625,"progress":"353B/353B"},{"desc":"uploading config.yaml","runtime_seconds":0.387585708,"progress":"584B/584B"}],"total_operations":4}}
+{"time":"2025-04-18T15:27:27.963798+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-18T15:27:28.279461+05:30","level":"INFO","msg":"stream: closing","id":"7u64wk19"}
+{"time":"2025-04-18T15:27:28.279548+05:30","level":"INFO","msg":"sender: closed","stream_id":"7u64wk19"}
+{"time":"2025-04-18T15:27:28.279539+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"7u64wk19"}
+{"time":"2025-04-18T15:27:28.280165+05:30","level":"INFO","msg":"handler: closed","stream_id":"7u64wk19"}
+{"time":"2025-04-18T15:27:28.280193+05:30","level":"INFO","msg":"stream: closed","id":"7u64wk19"}

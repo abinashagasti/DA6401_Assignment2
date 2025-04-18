@@ -1,0 +1,23 @@
+activation: !!python/name:torch.nn.functional.relu ''
+dropout_prob: 0.12
+img_size: 224
+kernel_size:
+- 3
+- 3
+- 3
+- 3
+- 3
+lr: 0.0006
+num_classes: 10
+num_dense:
+- 512
+num_filters:
+- 32
+- 64
+- 128
+- 256
+- 512
+padding: 1
+use_batchnorm: true
+use_dropout: true
+weight_decay: 0.0001

@@ -1,0 +1,16 @@
+{"time":"2025-04-18T13:54:44.921342+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/Users/abinashagasti/IITM/Academics/Deep Learning/DA6401_Assignment2/wandb/run-20250418_135444-40ivxdn7/logs/debug-core.log"}
+{"time":"2025-04-18T13:54:45.136131+05:30","level":"INFO","msg":"created new stream","id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:45.136205+05:30","level":"INFO","msg":"stream: started","id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:45.136221+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:45.136236+05:30","level":"INFO","msg":"handler: started","stream_id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:45.136265+05:30","level":"INFO","msg":"sender: started","stream_id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:45.583768+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-18T13:54:48.184627+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-18T13:54:48.186194+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-18T13:54:49.191856+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading media/images/Class-wise Predictions (10x3)_0_552a1f559d62506b224a.png","runtime_seconds":0.686717458,"progress":"1.1MB/3.7MB"},{"desc":"uploading config.yaml","runtime_seconds":0.379322458,"progress":"584B/584B"}],"total_operations":2}}
+{"time":"2025-04-18T13:54:51.12219+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-18T13:54:51.468476+05:30","level":"INFO","msg":"stream: closing","id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:51.468542+05:30","level":"INFO","msg":"handler: closed","stream_id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:51.468565+05:30","level":"INFO","msg":"sender: closed","stream_id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:51.468563+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"40ivxdn7"}
+{"time":"2025-04-18T13:54:51.468752+05:30","level":"INFO","msg":"stream: closed","id":"40ivxdn7"}
