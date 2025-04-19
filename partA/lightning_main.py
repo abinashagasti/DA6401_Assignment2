@@ -1,12 +1,9 @@
 import torch
-from torch.utils.data import DataLoader, random_split
-import torchvision.transforms as transforms
-import torchvision.datasets as datasets
 import pytorch_lightning as pl
 # from pl_bolts.callbacks import PrintTableMetricsCallback
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping, LearningRateMonitor
 
-from lightning_class import LitCNN  # assuming your model is in lit_cnn.py
+from lightning_class import LitCNN  
 from utils import *
 
 def main():
@@ -18,8 +15,8 @@ def main():
     img_size = 224
 
     # ------------------ Transforms ------------------ #
-    train_dir = "../inaturalist_12K/train"
-    test_dir = "../inaturalist_12K/val"
+    train_dir = "../../inaturalist_12K/train"
+    test_dir = "../../inaturalist_12K/val"
 
     train_loader, val_loader, test_loader = dataset_split(train_dir, test_dir, batch_size=batch_size, augmentation=True)
 

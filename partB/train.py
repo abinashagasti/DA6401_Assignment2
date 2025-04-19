@@ -29,6 +29,7 @@ def main(args):
     batch_size = args.batch_size
     max_epochs = args.epochs
 
+    # Device selection order CUDA > MPS > CPU
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     print(f"Using device: {device}")
     num_workers = max(1, multiprocessing.cpu_count() - 2) if torch.cuda.is_available() else 4 if torch.backends.mps.is_available() else 1
