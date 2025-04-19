@@ -1,3 +1,4 @@
+# Import desired libraries
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -5,10 +6,12 @@ import wandb
 import argparse
 import multiprocessing
 
+# Import custom modules
 from cnn_class import CNN
 from utils import *
 
 def main(args):
+    # Wandb details
     user = args.wandb_entity
     project = args.wandb_project
     display_name = "test_run"
@@ -16,22 +19,26 @@ def main(args):
     if args.wandb_login:
         wandb.init(entity=user, project=project, name=display_name) # Initialize wandb experiment. 
         # config = wandb.config
-        wandb.run.name = "best_model_200epochs_patience_3_10 "
+        # wandb.run.name = "best_model_200epochs_patience_3_10 "
     
     # Define dataset paths
     train_dir = args.data_directory+'/train'
     test_dir = args.data_directory+'/val'
 
+    # Set hyperparameters
     learning_rate = args.learning_rate
     batch_size = args.batch_size
     max_epochs = args.epochs
     img_size = args.img_size
+    activation = get_activation(args.activation)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     print(f"Using device: {device}")
     num_workers = max(1, multiprocessing.cpu_count() - 2) if torch.cuda.is_available() else 4 if torch.backends.mps.is_available() else 1
 
     use_augmentation = args.use_augmentation
+
+    # Obtain dataloaders for train, val and test
     train_loader, val_loader, test_loader = dataset_split(train_dir, test_dir, batch_size=batch_size, num_workers=num_workers, augmentation=use_augmentation, img_size=img_size)
 
     # Define custom CNN
@@ -42,15 +49,16 @@ def main(args):
     use_dropout = args.use_dropout
     use_batchnorm = args.use_batchnorm
     padding = args.padding
-    model = CNN(num_filters=num_filters, num_dense=num_dense, kernel_size=kernel_size, padding=padding,
+    model = CNN(num_filters=num_filters, num_dense=num_dense, kernel_size=kernel_size, padding=padding, activation=activation,
                 use_batchnorm=use_batchnorm, use_dropout=use_dropout, dropout_prob=dropout_prob, img_size = img_size)
 
     model = model.to(device)
 
-    loss_fn = nn.CrossEntropyLoss()
-    optimizer = get_optimizer(args.optimizer, model, learning_rate=learning_rate, weight_decay=args.weight_decay)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
+    loss_fn = nn.CrossEntropyLoss() # loss function 
+    optimizer = get_optimizer(args.optimizer, model, learning_rate=learning_rate, weight_decay=args.weight_decay) # optimizer
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3) # learning rate scheduler
 
+    # Print training information
     print(f"Training with 'Custom CNN'")
     print(f"Training Parameters:")
     print(f"Learning Rate: {learning_rate}, num_filters: {num_filters}, kernel_size: {kernel_size}, num_dense: {num_dense}, batch_size: {batch_size}, dropout: {dropout_prob if use_dropout else None}, batchnorm: {use_batchnorm}, data_augmentation: {use_augmentation}")
@@ -59,7 +67,7 @@ def main(args):
     # test_loop(test_loader, model, loss_fn, device, class_names)
 
     if args.wandb_login:
-        wandb.finish()
+        wandb.finish() # End wandb experiment
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

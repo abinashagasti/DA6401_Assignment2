@@ -1,3 +1,4 @@
+# Import required libraries
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -5,10 +6,12 @@ import wandb
 import argparse
 import multiprocessing
 
+# Import custom modules
 from pretrained_models import pretrained_model
 from utils import *
 
 def main(args):
+    # Wandb details
     user = args.wandb_entity
     project = args.wandb_project
     display_name = "test_run"
@@ -21,7 +24,8 @@ def main(args):
     train_dir = args.data_directory+'/train'
     test_dir = args.data_directory+'/val'
 
-    learning_rate = args.learning_rate
+    # Set hyperparameters
+    learning_rate = args.learning_rate 
     batch_size = args.batch_size
     max_epochs = args.epochs
 
@@ -30,25 +34,28 @@ def main(args):
     num_workers = max(1, multiprocessing.cpu_count() - 2) if torch.cuda.is_available() else 4 if torch.backends.mps.is_available() else 1
 
     use_augmentation = args.use_augmentation
+
+    # Get dataloaders for train, val and test
     train_loader, val_loader, test_loader = dataset_split(train_dir, test_dir, batch_size=batch_size, num_workers=num_workers, augmentation=use_augmentation)
 
-    # Load a pretrained ResNet18 model
+    # Load a pretrained
     model_type = args.model_type # Options = ["ResNet18", "ResNet50", "GoogLeNet", "VGG", "InceptionV3", "EfficientNetV2", "VisionTransformer"]
-    model = pretrained_model(model_type, k=1)
+    model = pretrained_model(model_type, k=args.trainable_layers)
 
     model = model.to(device)
 
-    loss_fn = nn.CrossEntropyLoss()
-    optimizer = get_optimizer(args.optimizer, model, learning_rate=learning_rate, weight_decay=args.weight_decay)
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
+    loss_fn = nn.CrossEntropyLoss() # loss function
+    optimizer = get_optimizer(args.optimizer, model, learning_rate=learning_rate, weight_decay=args.weight_decay) # optimizer
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3) # learning rate scheduler
 
+    # Print Training information
     print(f"Training with {model_type}")
-    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler=scheduler, device=device, max_epochs=max_epochs, patience_stop=10, wandb_log=wandb_login)
+    train_loop(train_loader, val_loader, model, loss_fn, optimizer, scheduler=scheduler, device=device, max_epochs=max_epochs, patience_stop=10, wandb_log=args.wandb_login)
     # class_names = ["Amphibia", "Animalia", "Arachnida", "Aves", "Fungi", "Insecta", "Mammalia", "Mollusca", "Plantae", "Reptilia"]
     # test_loop(test_loader, model, loss_fn, device, class_names)
 
     if args.wandb_login:
-        wandb.finish()
+        wandb.finish() # End wandb experiment
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -61,9 +68,9 @@ if __name__ == "__main__":
     parser.add_argument("-k","--trainable_layers",default=1,help="Number of trainable layers.",type=int)
     parser.add_argument("-da","--use_augmentation",default=True,action="store_false",help="Use data augmentation for training.")
     parser.add_argument("-pad","--padding",default=1,choices=[None, 1, 2],help="Padding used in each layer.")
-    parser.add_argument("-o","--optimizer",default="adam",choices=["sgd", "adam"], help="optimizer to train neural network",type=str)
-    parser.add_argument("-lr","--learning_rate",default=0.00028, help="Learning rate used to optimize model parameters",type=float)
-    parser.add_argument("-w_d","--weight_decay",default=0.0007, help="Weight decay used by optimizers",type=float)
+    parser.add_argument("-o","--optimizer",default="sgd",choices=["sgd", "adam"], help="optimizer to train neural network",type=str)
+    parser.add_argument("-lr","--learning_rate",default=0.000281, help="Learning rate used to optimize model parameters",type=float)
+    parser.add_argument("-w_d","--weight_decay",default=0.000827, help="Weight decay used by optimizers",type=float)
     parser.add_argument("-wbl","--wandb_login",default=False,action="store_true", help="Login data onto wandb.ai")
     args = parser.parse_args()
     main(args)
